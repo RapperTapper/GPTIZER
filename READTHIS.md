@@ -10,4 +10,4 @@ Inhalt von VSC
 
 vis Web. oder extern
 
-via VSCode.
+via web
