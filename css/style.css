@@ -9,23 +9,30 @@
     --grey: #AAAAAA;
     --light-grey: #E4E4E7;
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 header {
-    position: fixed;
+    /* position: fixed; */
     z-index: 1;
-    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center; /* Vertically align contents */
-    padding: 10px 0; /* Top and bottom padding */
+    padding: 15px 0; /* Top and bottom padding */
+}
+
+.logo img,
+.menu img {
+    height: 50px;
 }
 
 .header-left {
     display: flex;
     align-items: center; /* Vertically align contents */
-}
-
-.logo, .menu {
-    height: 20px; /* Set height to 20px */
 }
 
 .header-right {
