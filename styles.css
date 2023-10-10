@@ -1,0 +1,48 @@
+:root {
+    --green: #275942;
+    --green-hover: #234032; /* use only for buttons */
+    --green-focus: #47896B; /* use only for buttons */
+    --beige: #E5C7B1;
+    --white: #FFFFFF;
+    --white-background: #F2F2F2;
+    --black: #333333;
+    --grey: #AAAAAA;
+    --light-grey: #E4E4E7;
+}
+header {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row; /* Horizontal flex direction */
+    padding-top: 10px;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row; /* Horizontal flex direction */
+    padding-top: 10px;
+}
+
+body {
+    background-color: var(--white-background);
+    padding: 0px 20px 0px 20px;
+}
+
+.content-frame {
+    padding-top: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 360px; /* Set a fixed width */
+}
