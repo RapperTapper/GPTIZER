@@ -1,75 +1,77 @@
-<!-- HTML File auf der Root des Servers für Authentifizierung -->
-
-<!-- START Magiclink Authentication -->
-
 <!DOCTYPE html>
-<html lang="de">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SupaBase Auth </title>
-    <script src="https://unpkg.com/@supabase/supabase-js@2"> </script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.29.0/dist/umd/supabase.min.js"></script>
-
+    <title>testing</title>
+    <link rel="stylesheet" href="css/style.css" media="all" type="text/css">
+    <link rel="stylesheet" href="https://use.typekit.net/bhl8svg.css">
 </head>
-
-<body>
-<!-- was isch de mit däm hie los? Das wird mir ja garnid aazeigt. -->
-    <h2 style="color:red" id="rootCheck">Checking location...</h2>
-
-    <div>
-        <h2>Magic Link Authentication</h2>
-        <input type="email" id="emailInput" placeholder="Enter your email" />
-        <button id="sendMagicLinkButton">Send Magic Link</button>
-    </div>
-
-    <p id="userStatus">Checking authentication status...</p>
-
-    <button id="logoutButton">Logout</button>
-
-    <script type="module" src="connection/supabase.js"></script>
-    <script type="module" src="magiclink.js"></script>
-
-    <script>
-
-        // script prüft, ob wir uns auf der root des servers befinden
-
-        window.addEventListener('DOMContentLoaded', (event) => {
-            const rootCheckElem = document.getElementById('rootCheck');
-    
-            if (window.location.pathname === "/" || window.location.pathname === "/index.html") {
-                rootCheckElem.textContent = "You are on the root of the server.";
-                rootCheckElem.style.display = "none"; // Hide it if you don't want any message on the root
-            } else {
-                rootCheckElem.innerHTML = 'Authentication funktioniert nur auf der Root des Servers! Das ist nicht hier, sondern <a href="/"> da </a>';
-            }
-        });
-    </script>
-
+<body class="body">
+    <header>
+        <div class="header-left">
+            <div class="logo">
+                <a href="/"><img src="icons/Logo_GPTIZER.svg" alt="logo" /></a>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="menu menu-wrapper">
+                <div class="user-icon" onclick="toggleMenu()">
+                    <img src="icons/user.svg" alt="user menu" />
+                </div>
+                <ul class="main-menu" id="main-menu">
+                    <li>
+                      <a href="./profile.html">Profile</a>
+                    </li>
+                    <li>
+                      <a href="./search.html">Search</a>
+                    </li>
+                  </ul>
+            </div>
+        </div>
+    </header>
+    <content class="content_frame">
+        <div class="content">
+            <!--elements go here-->
+            <!--elements go here-->
+            <!--elements go here-->
+            <h1>Fields</h1>
+            <div class="content_description">
+                <p>* Textfield</p>
+            </div>
+            <div class="content_field content_field_big">
+                <p>Text</p>
+            </div>
+            <div class="content_description">
+                <p># of Characters</p>
+            </div>
+            <div class="content_field">
+                <p>Number</p>
+            </div>
+            <div class="content_field">
+                <p>Choose Language</p>
+            </div>
+            <div class="content_field">
+                <p>Choose Range of use</p>
+            </div>
+            <div class="content_description">
+                <p>Name your Preset</p>
+            </div>
+            <div class="content_field">
+                <p>My Preset</p>
+            </div>
+            <div class="content_row">
+                <button class="btn btn-light">Reset</button>
+                <button class="btn">Search</button>
+                <button class="btn btn-light">Save</button>
+            </div>
+            <div class="content_field">
+                <p>Preset 01</p>
+            </div>
+            <!--end of elements-->
+            <!--end of elements-->
+            <!--end of elements-->
+        </div>
+    </content>
 </body>
-
-<!-- <body>
-
-    <div>
-        <h2>Magic Link Authentication</h2>
-        <input type="email" id="emailInput" placeholder="Enter your email" />
-        <button id="sendMagicLinkButton">Send Magic Link</button>
-    </div>
-
-    <p id="userStatus">Checking authentication status...</p>
-
-    <button id="logoutButton">Logout</button>
-
-    <script type="module" src="../../00_setup/supabase.js"></script>
-    <script type="module" src="03_authentication/1_magiclink.js"></script>
-
-</body> -->
-
 </html>
-
-<!-- ENDE Magiclink Authentication -->
-<!-- ENDE Magiclink Authentication -->
-<!-- ENDE Magiclink Authentication -->
-<!-- ENDE Magiclink Authentication -->
