@@ -1,4 +1,0 @@
-team red
-
-
-neuer Code
