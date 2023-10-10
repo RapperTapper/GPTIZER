@@ -15,16 +15,28 @@ header {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    flex-direction: row; /* Horizontal flex direction */
-    padding-top: 10px;
+    align-items: center; /* Vertically align contents */
+    padding: 10px 0; /* Top and bottom padding */
 }
 
-.header {
-    width: 100%;
+.header-left {
     display: flex;
-    justify-content: space-between;
-    flex-direction: row; /* Horizontal flex direction */
-    padding-top: 10px;
+    align-items: center; /* Vertically align contents */
+}
+
+.logo, .menu {
+    height: 20px; /* Set height to 20px */
+}
+
+.header-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: start;
+}
+
+.menu {
+    text-align: right;
 }
 
 body {
