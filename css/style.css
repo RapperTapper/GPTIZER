@@ -109,7 +109,8 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 360px; /* Set a fixed width */
+    /* width: 360px; Set a fixed width */
+    width: calc(clamp(2.25rem, 0.0347rem + 3.2222vw, 4.0625rem)*10);
 }
 
 .content_field {
@@ -168,7 +169,7 @@ body {
     box-shadow: var(--box-shadow);
     font-weight: 600;
     letter-spacing: 0.3px;
-    border: 1px solid transparent;
+    border: 1px solid var(--green);
   }
   
   .btn:hover,
@@ -188,7 +189,7 @@ body {
   .btn-light:hover {
     color: var(--white);
     background-color: var(--green);
-    border-color: transparent;
+    border-color: var(--green);
   }
 
   a,
