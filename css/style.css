@@ -19,7 +19,8 @@
 }
 
 header {
-    /* position: fixed; */
+    position: fixed;
+    width: calc(100% - 40px);
     z-index: 1;
     display: flex;
     align-items: center; /* Vertically align contents */
@@ -121,7 +122,7 @@ body {
     justify-content: start;
     margin: 0 0 15px 0;
     padding: 15px 20px;
-    border-radius: 5px;
+    border-radius: 8px;
     box-shadow: var(--box-shadow);
     border: 1px solid var(--light-grey);
 }
@@ -165,7 +166,7 @@ body {
     width: 100%;
     color: var(--white);
     background-color: var(--green);
-    border-radius: 5px;
+    border-radius: 8px;
     box-shadow: var(--box-shadow);
     font-weight: 600;
     letter-spacing: 0.3px;
