@@ -171,8 +171,9 @@ a {
     min-height: 80px;
     resize: vertical;
 }
-
-/* i was working on the height of the number thing - Textarea change */ 
+textarea {
+    max-height: auto;
+}
 
 /* it is becoming lable */
 .content-description {
