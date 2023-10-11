@@ -12,6 +12,7 @@
     --box-shadow: 1px 2px 3px 0 var(--drop-shadow);
     --font-size-body: 14px;
     --font-weight-body: 300;
+    --border-radius: 8px;
 }
 
 * {
@@ -78,13 +79,13 @@ header {
     /* min-width: 120px; */
     box-shadow: var(--box-shadow);
     list-style-type: none;
-    border-radius: 8px;
+    border-radius: var(--border-radius);
 }
 
 .main-menu li {
     display: block;
     text-align: center;
-    border-radius: 8px;
+    border-radius: var(--border-radius);
 }
 
 .main-menu li:hover {
@@ -148,7 +149,7 @@ a {
     flex-direction: column;
     justify-content: start;
     margin: 0 0 15px 0;
-    border-radius: 8px;
+    border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     border: 1px solid var(--light-grey);
     font-family: new-frank, sans-serif;
@@ -226,7 +227,7 @@ textarea {
     width: 100%;
     color: var(--white);
     background-color: var(--green);
-    border-radius: 8px;
+    border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     font-weight: 500;
     letter-spacing: 0.3px;
@@ -260,17 +261,88 @@ textarea {
   input[type="submit"] {
     -webkit-transition: .2s all ease;
     transition: .2s all ease;
-  }
+}
 
-  h1 {
+h1 {
     color: var(--green);
     font-size: 30px;
     font-weight: 600;
     line-height: 40px;
     margin: 0 0 15px 0;
     text-align: center;
+}
+
+.spacer-bottom {
+    height: 25px;
+}
+
+select {
+    border: none;
   }
 
-  .spacer-bottom {
-    height: 25px;
+ select:focus {
+    outline: none;
+}
+
+/* The container must be positioned relative: */
+.custom-select {
+    position: relative;
+}
+  
+  .custom-select select {
+    display: none; /*hide original SELECT element: */
+  }
+  
+  /* Style the arrow inside the select element: */
+  .select-selected:after {
+    position: absolute;
+    content: "";
+    top: 16px;
+    right: 10px;
+    width: 0;
+    height: 0;
+  }
+  
+  /* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+}
+  
+  /* style the items (options), including the selected item: */
+  .select-items div {
+    padding: 16px 20px;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    font-family: var(--font-family-body);
+    font-weight: var(--font-weight-body);
+ }
+  
+ .select-selected {
+    cursor: pointer;
+ }
+  
+ /* Style items (options): */
+ .select-items {
+    position: absolute;
+    margin-top: 5px;
+    background-color: var(--white);
+    color: var(--green);
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+ }
+  
+  /* Hide the items when the select box is closed: */
+  .select-hide {
+    display: none;
+  }
+  
+  .select-items div:hover, .same-as-selected {
+    background-color: var(--green);
+    color: var(--white);
+    
   }

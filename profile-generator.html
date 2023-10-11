@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>testing</title>
+    <title>profile-generator-GPTIZER</title>
     <link rel="stylesheet" href="css/style.css" media="all" type="text/css">
     <link rel="stylesheet" href="https://use.typekit.net/bhl8svg.css">
 </head>
@@ -45,8 +45,14 @@
                     <label class="content-label" for="#-characters">prefered answer length (range possible)</label>
                     <textarea class="content-field" id="#-characters" name="#-characters" placeholder="500 or 300-700" rows="1"></textarea>
                 </div>
-                <div class="content-field">
-                    <p>choose language for answers</p>
+                <div class="form-group field-select content-field custom-select">
+                    <select id="answer-language" name="answer-language">
+                        <option value="" selected disabled hidden>choose language for answers</option>
+                        <option value="english">english</option>
+                        <option value="french">french</option>
+                        <option value="german">german</option>
+                        <option value="same as input">same as input</option>
+                    </select>
                 </div>
                 <div class="content-field">
                     <p>choose whatever we put in here</p>
@@ -73,5 +79,6 @@
         </div>
     </content>
     <script src="js/menu.js"></script>
+    <script src="js/dropdown-select.js"></script>
 </body>
 </html>
