@@ -258,6 +258,7 @@ textarea {
   .main-menu li,
   .btn,
   button,
+  .select-items div,
   input[type="submit"] {
     -webkit-transition: .2s all ease;
     transition: .2s all ease;
@@ -305,7 +306,7 @@ select {
   
   /* Point the arrow upwards when the select box is open (active): */
 .select-selected.select-arrow-active:after {
-    border-color: transparent transparent #fff transparent;
+    border-color: transparent transparent var(--green) transparent;
     top: 7px;
 }
   
