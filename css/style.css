@@ -103,7 +103,7 @@ header {
 
 .main-menu a,
 .content-field {
-    padding: 20px;
+    padding: 20px 20px;
 }
 
 body {
@@ -198,11 +198,11 @@ textarea {
     font-style: italic;
 }
 
-.content-btn {
+/* .content-btn {
     display: flex;
     width: 100%;
     margin: 20px 0 15px 0;
-}
+} */
 
 .content-textfield {
     display: flex;
@@ -221,6 +221,9 @@ textarea {
 }
 
 .btn {
+    display: flex;
+    width: 100%;
+    margin: 10px 0 15px 0;
     padding: 15px 20px; /* Button padding (top/bottom, left/right) */
     border: none; /* Remove the default button border */
     cursor: pointer; /* Show a pointer cursor on hover */
@@ -312,7 +315,7 @@ select {
   
   /* style the items (options), including the selected item: */
   .select-items div {
-    padding: 16px 20px;
+    padding: 20px 20px;
     cursor: pointer;
     border-radius: var(--border-radius);
     font-family: var(--font-family-body);

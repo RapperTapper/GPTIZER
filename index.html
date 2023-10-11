@@ -7,20 +7,73 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SupaBase Auth </title>
-    <script src="https://unpkg.com/@supabase/supabase-js@2"> </script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.29.0/dist/umd/supabase.min.js"></script>
-
+    <title>profile-generator-GPTIZER</title>
+    <link rel="stylesheet" href="css/style.css" media="all" type="text/css">
+    <link rel="stylesheet" href="https://use.typekit.net/bhl8svg.css">
 </head>
 
+<body class="body">
+    <header>
+        <div class="header-left">
+            <div class="logo">
+                <a href="/"><img src="icons/Logo_GPTIZER.svg" alt="logo" /></a>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="menu menu-wrapper">
+                <div class="user-icon" id="user-icon">
+                    <img src="icons/user.svg" alt="user menu" onclick="toggleMenu()" />
+                </div>
+                <ul class="main-menu" id="main-menu"style="display: none;">
+                    <li>
+                        <a href="./profile.html">Profile</a>
+                    </li>
+                    <li>
+                        <a href="./search.html">Search</a>
+                    </li>
+                </ul>
+            </div>                    
+        </div>
+    </header>
+    <!-- was isch de mit däm hie los? Das wird mir ja garnid aazeigt. -->
+    <h1 style="color:red" id="rootCheck">Checking location...</h1>
+    <content class="content-frame">
+        <div class="content">
+            <form action="" class="form-base form-search"></form>
+                <!--elements go here-->
+                <!--elements go here-->
+                <!--elements go here-->
+                <h1>Magic Link Authentication</h1>
+                <div class="form-group field-textarea content-textfield">
+                    <label class="content-label" for="emailInput">email</label>
+                    <input class="content-field" type="email" id="emailInput" placeholder="enter your email" />
+                    <button class="btn" id="sendMagicLinkButton">SignIn / SignUp</button>
+                </div>
+                <div class="content-btn">
+                    <button class="btn">Search</button>
+                </div>
+                <div class="content-row">
+                    <button class="btn btn-light">Reset</button>
+                    <button class="btn btn-light">Save</button>
+                </div>
+                <div class="spacer-bottom">
+                </div>
+                <!--end of elements-->
+                <!--end of elements-->
+                <!--end of elements-->
+            </form>
+        </div>
+    </content>
+    <script src="js/menu.js"></script>
+    <script src="js/dropdown-select.js"></script>
+</body>
+
 <body>
-<!-- was isch de mit däm hie los? Das wird mir ja garnid aazeigt. -->
-    <h2 style="color:red" id="rootCheck">Checking location...</h2>
+
 
     <div>
-        <h2>Magic Link Authentication</h2>
+        <h1>Magic Link Authentication</h1>
         <input type="email" id="emailInput" placeholder="Enter your email" />
         <button id="sendMagicLinkButton">Send Magic Link</button>
     </div>

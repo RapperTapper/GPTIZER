@@ -54,18 +54,21 @@
                         <option value="same as input">same as input</option>
                     </select>
                 </div>
-                <div class="content-field">
-                    <p>choose whatever we put in here</p>
+                <div class="form-group field-select content-field custom-select">
+                    <!-- <label class="selector-label" for="answer-language">answer language -> please position outside of the box!!!</label> -->
+                    <select id="answer-language" name="answer-language">
+                        <option value="" selected disabled hidden>choose whatever we put in here</option>
+                        <option value="option-01">option 01</option>
+                        <option value="option-02">option 02</option>
+                        <option value="option-03">option 03</option>
+                        <option value="option-04">option 04</option>
+                    </select>
                 </div>
-                <div class="content-description">
-                    <p>Name your Preset</p>
+                <div class="form-group field-textarea content-textfield">
+                    <label class="content-label" for="profile-name">name your profile</label>
+                    <textarea class="content-field" id="profile-name" name="profile-name" placeholder="nice email to my boss" rows="1"></textarea>
                 </div>
-                <div class="content-field">
-                    <p>My Preset</p>
-                </div>
-                <div class="content-btn">
-                    <button class="btn">Search</button>
-                </div>
+                <button class="btn">Search</button>
                 <div class="content-row">
                     <button class="btn btn-light">Reset</button>
                     <button class="btn btn-light">Save</button>
