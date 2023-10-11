@@ -49,13 +49,11 @@
                     <label class="content-label" for="emailInput">email</label>
                     <input class="content-field" type="email" id="emailInput" placeholder="enter your email" />
                     <button class="btn" id="sendMagicLinkButton">SignIn / SignUp</button>
+                    <button class="btn btn-light" id="logoutButton">LogOut</button>
                 </div>
-                <div class="content-btn">
-                    <button class="btn">Search</button>
-                </div>
-                <div class="content-row">
-                    <button class="btn btn-light">Reset</button>
-                    <button class="btn btn-light">Save</button>
+                <!-- Content Field with STATUS has to be Styled and given a class! -->
+                <div>
+                    <p id="userStatus">Checking authentication status...</p>
                 </div>
                 <div class="spacer-bottom">
                 </div>
@@ -67,24 +65,8 @@
     </content>
     <script src="js/menu.js"></script>
     <script src="js/dropdown-select.js"></script>
-</body>
-
-<body>
-
-
-    <div>
-        <h1>Magic Link Authentication</h1>
-        <input type="email" id="emailInput" placeholder="Enter your email" />
-        <button id="sendMagicLinkButton">Send Magic Link</button>
-    </div>
-
-    <p id="userStatus">Checking authentication status...</p>
-
-    <button id="logoutButton">Logout</button>
-
     <script type="module" src="connection/supabase.js"></script>
     <script type="module" src="js/magiclink.js"></script>
-
     <script>
  
         // script prüft, ob wir uns auf der root des servers befinden
@@ -100,26 +82,7 @@
             }
         });
     </script>
-
 </body>
-
-<!-- <body>
-
-    <div>
-        <h2>Magic Link Authentication</h2>
-        <input type="email" id="emailInput" placeholder="Enter your email" />
-        <button id="sendMagicLinkButton">Send Magic Link</button>
-    </div>
-
-    <p id="userStatus">Checking authentication status...</p>
-
-    <button id="logoutButton">Logout</button>
-
-    <script type="module" src="../../00_setup/supabase.js"></script>
-    <script type="module" src="03_authentication/1_magiclink.js"></script>
-
-</body> -->
-
 </html>
 
 <!-- ENDE Magiclink Authentication -->
