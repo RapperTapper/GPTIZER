@@ -33,10 +33,11 @@ header {
     justify-content: space-between;
 }
 
-.logo img,
-.menu img
- {
+.logo img {
     height: 30px;
+}
+.menu img {
+    height: 43px;
 }
 
 .header-left {
@@ -72,21 +73,35 @@ header {
     right: 0;
     top: 100%;
     background-color: var(--white);
-    min-width: 120px;
+    /* min-width: 120px; */
     box-shadow: var(--box-shadow);
     list-style-type: none;
+    border-radius: 8px;
 }
 
 .main-menu li {
     display: block;
-  }
+    text-align: center;
+    border-radius: 8px;
+}
+
+.main-menu li:hover {
+    background-color: var(--green);
+}
   
-  .main-menu a {
-    display: block;
-    padding: 12px 16px;
-    text-decoration: none;
-  }
-  
+.main-menu a {
+   display: block;
+   text-decoration: none;
+}
+
+.main-menu a:hover {
+    color: var(--white);
+}
+
+.main-menu a,
+.content-field {
+    padding: 15px 20px;
+}
 
 body {
     background-color: var(--white-background);
@@ -98,7 +113,17 @@ body {
     font-size: 14px;
 }
 
-.content_frame {
+a {
+    color: var(--green);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: var(--black);
+  }
+  
+
+.content-frame {
     padding-top: 150px;
     display: flex;
     flex-direction: column;
@@ -114,24 +139,23 @@ body {
     width: calc(clamp(2.25rem, 0.0347rem + 3.2222vw, 4.0625rem)*10);
 }
 
-.content_field {
+.content-field {
     background-color: var(--white);
     display: flex;
     width: 100%;
     flex-direction: column;
     justify-content: start;
     margin: 0 0 15px 0;
-    padding: 15px 20px;
     border-radius: 8px;
     box-shadow: var(--box-shadow);
     border: 1px solid var(--light-grey);
 }
 
-.content_field_big {
+.content-field-big {
     min-height: 80px;
 }
 
-.content_description {
+.content-description {
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -141,7 +165,7 @@ body {
     color: var(--black)
 }
 
-.content_row {
+.content-row {
     display: flex;
     width: 100%;
     flex-direction: row;
@@ -195,6 +219,7 @@ body {
   }
 
   a,
+  .main-menu li,
   .btn,
   button,
   input[type="submit"] {
