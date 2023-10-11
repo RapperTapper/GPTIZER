@@ -160,7 +160,7 @@ a {
 
 .content-field::placeholder {
     color: var(--grey);
-    font-style: italic;
+    /* font-style: italic; */
 }
 
 .content-field:focus {
@@ -193,13 +193,14 @@ textarea {
     justify-content: start;
     margin: 0 0 2px 0;
     padding: 0 20px;
-    color: var(--black)
+    color: var(--black);
+    font-style: italic;
 }
 
 .content-btn {
     display: flex;
     width: 100%;
-    margin: 0px 0 15px 0;
+    margin: 20px 0 15px 0;
 }
 
 .content-textfield {
