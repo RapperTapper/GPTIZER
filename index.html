@@ -11,7 +11,7 @@
     <header>
         <div class="header-left">
             <div class="logo">
-                <a href="/"><img src="icons/Logo-GPTIZER.svg" alt="logo" /></a>
+                <a href="/"><img src="icons/Logo_GPTIZER.svg" alt="logo" /></a>
             </div>
         </div>
         <div class="header-right">
@@ -36,12 +36,10 @@
                 <!--elements go here-->
                 <!--elements go here-->
                 <!--elements go here-->
-                <h1>Fields</h1>
-                <div class="content-description">
-                    <p>* Textfield</p>
-                </div>
-                <div class="content-field content-field-big">
-                    <p>Text</p>
+                <h1>Search</h1>
+                <div class="form-group field-textarea content-textfield">
+                    <label class="content-description" for="textfield">*Textfield</label>
+                    <textarea class="content-field content-field-big" id="textfield" name="textfield" placeholder="Text"></textarea>
                 </div>
                 <div class="content-description">
                     <p># of Characters</p>
@@ -61,9 +59,11 @@
                 <div class="content-field">
                     <p>My Preset</p>
                 </div>
+                <div class="content-btn">
+                    <button class="btn">Search</button>
+                </div>
                 <div class="content-row">
                     <button class="btn btn-light">Reset</button>
-                    <button class="btn">Search</button>
                     <button class="btn btn-light">Save</button>
                 </div>
                 <div class="content-field">
