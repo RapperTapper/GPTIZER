@@ -124,7 +124,6 @@ a {
   a:hover {
     color: var(--black);
   }
-  
 
 .content-frame {
     padding-top: 150px;
@@ -133,6 +132,7 @@ a {
     justify-content: flex-start;
     align-items: center;
 }
+
 .content {
     display: flex;
     flex-direction: column;
@@ -221,7 +221,6 @@ textarea {
 }
 
 .btn {
-    display: flex;
     width: 100%;
     margin: 10px 0 15px 0;
     padding: 15px 20px; /* Button padding (top/bottom, left/right) */
