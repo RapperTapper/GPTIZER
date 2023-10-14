@@ -8,7 +8,7 @@ async function sendMagicLink() {
     const { error } = await supa.auth.signIn({ email });
     
     if (error) {
-        console.error("Error sending magic link: ", error.message);
+        // console.error("Error sending magic link: ", error.message);
         message.textContent = "Please enter a valid email address.";
     } else {
         console.log("Magic link sent to ", email);
@@ -23,7 +23,7 @@ function updateUserStatus(user) {
   if (user) {
       userStatusElement.textContent = `Authenticated as: ${user.email}`;
   } else {
-      userStatusElement.textContent = "Not authenticated.";
+      userStatusElement.textContent = "";
   }
 }
 

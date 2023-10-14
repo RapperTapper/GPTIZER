@@ -352,3 +352,7 @@ select {
     color: var(--white);
     /* here i have to play with the background :) */
   }
+
+.message-to-user {
+    font-weight: 500;
+}
