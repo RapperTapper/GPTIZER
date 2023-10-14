@@ -10,6 +10,7 @@
     --light-grey: #E4E4E7;
     --drop-shadow: #00000040;
     --box-shadow: 1px 2px 3px 0 var(--drop-shadow);
+    --font-family-body: "new-frank", sans-serif;
     --font-size-body: 14px;
     --font-weight-body: 300;
     --border-radius: 8px;
@@ -110,15 +111,11 @@ body {
     background-color: var(--white-background);
     margin: 0;
     padding: 0px 20px 0px 20px;
-    font-family: "new-frank", sans-serif;
+    font-family: var(--font-family-body);
     font-weight: var(--font-weight-body);
     font-style: normal;
     font-size: var(--font-size-body);
 }
-
-/* button {
-    font-family: var(--font-family-body);
-} */
 
 a {
     color: var(--green);
@@ -156,10 +153,10 @@ a {
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     border: 1px solid var(--light-grey);
-    font-family: new-frank, sans-serif;
+    /* font-family: var(--font-family-body);
     font-size: var(--font-size-body);
+    font-weight: var(--font-weight-body); */
     color: var(--black);
-    font-weight: var(--font-weight-body);
     resize: none;
 }
 
@@ -235,7 +232,7 @@ textarea {
     background-color: var(--green);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    font-family: var(--font-family-body);
+    /* font-family: var(--font-family-body); */
     font-weight: 500;
     letter-spacing: 0.3px;
     border: 1px solid var(--green);
@@ -322,8 +319,8 @@ select {
     padding: 20px 20px;
     cursor: pointer;
     border-radius: var(--border-radius);
-    font-family: var(--font-family-body);
-    font-weight: var(--font-weight-body);
+    /* font-family: var(--font-family-body);
+    font-weight: var(--font-weight-body); */
  }
   
  .select-selected {
