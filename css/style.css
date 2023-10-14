@@ -233,6 +233,7 @@ textarea {
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     font-family: var(--font-family);
+    font-size: var(--font-size-body);
     font-weight: 500;
     letter-spacing: 0.3px;
     border: 1px solid var(--green);
