@@ -347,5 +347,5 @@ select {
   .select-items div:hover, .same-as-selected {
     background-color: var(--green);
     color: var(--white);
-    
+    /* here i have to play with the background :) */
   }
