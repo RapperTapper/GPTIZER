@@ -224,7 +224,7 @@ textarea {
 .btn {
     width: 100%;
     margin: 10px 0 15px 0;
-    padding: 15px 20px; /* Button padding (top/bottom, left/right) */
+    padding: 20px; /* Button padding (top/bottom, left/right) */
     border: none; /* Remove the default button border */
     cursor: pointer; /* Show a pointer cursor on hover */
     width: 100%;
