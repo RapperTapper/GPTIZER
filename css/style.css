@@ -116,6 +116,10 @@ body {
     font-size: var(--font-size-body);
 }
 
+/* button {
+    font-family: var(--font-family-body);
+} */
+
 a {
     color: var(--green);
     text-decoration: none;
@@ -231,6 +235,7 @@ textarea {
     background-color: var(--green);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+    font-family: var(--font-family-body);
     font-weight: 500;
     letter-spacing: 0.3px;
     border: 1px solid var(--green);
