@@ -21,7 +21,7 @@ function updateUserStatus(user) {
   const userStatusElement = document.getElementById('userStatus');
   
   if (user) {
-      userStatusElement.textContent = `Authenticated as: ${user.email}`;
+      userStatusElement.textContent = `→ Authenticated as: ${user.email}`;
   } else {
       userStatusElement.textContent = "";
   }

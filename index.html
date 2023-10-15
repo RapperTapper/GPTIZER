@@ -13,63 +13,77 @@
     <link rel="stylesheet" href="https://use.typekit.net/bhl8svg.css">
     <script src="https://unpkg.com/@supabase/supabase-js@2"> </script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.29.0/dist/umd/supabase.min.js"></script>
+    <!-- Do these Scripts have to be in every html file head??? -->
 </head>
 
 <body class="body">
-    <header>
-        <div class="header-left">
-            <div class="logo">
-                <a href="/"><img src="icons/Logo_GPTIZER.svg" alt="logo" /></a>
+    <div class="body-padding">
+        <header>
+            <div class="header-left">
+                <div class="logo">
+                    <a href="/">
+                        <picture>
+                            <!-- Source for screens wider than 1199px -->
+                            <source media="(min-width: 1200px)" srcset="icons/Logo_GPTIZER_for_beige.svg">
+                            <!-- Source for screens 1199px or less -->
+                            <source media="(max-width: 1199px)" srcset="icons/Logo_GPTIZER.svg">
+                            <img src="icons/Logo_GPTIZER.svg" alt="logo" />
+                            </picture>
+                        <!-- <img src="icons/Logo_GPTIZER_Alternative.svg" alt="logo" /> -->
+                        </a>
+                </div>                
             </div>
+        </header>
+    </div>
+    <div class="flex-row">
+        <div class="green-background">
+            <content class="content-frame-home">
+                <div class="content-home-green">
+                    <p class="quote">"We are elegantly dismantling the barrier separating computer and humanity."</p>
+                </div>
+            </content>
         </div>
-        <div class="header-right">
-            <div class="menu menu-wrapper">
-                <div class="user-icon" id="user-icon">
-                    <img src="icons/user.svg" alt="user menu" onclick="toggleMenu()" />
+        <div class="beige-background">
+            <!-- <footer class="footer-home">
+                <div class="content-home-footer">
+                    <div class="">
+                        asdfasfdasfasfd
+                    </div>                    
                 </div>
-                <ul class="main-menu" id="main-menu"style="display: none;">
-                    <li>
-                        <a href="./profile.html">Profile</a>
-                    </li>
-                    <li>
-                        <a href="./search.html">Search</a>
-                    </li>
-                </ul>
-            </div>                    
+            </footer> -->
+            <content class="content-frame-home">
+                <div class="content-home-beige">
+                    <h1 style="color: var(--white)" id="rootCheck">Checking location...</h1>
+                    <form action="" class="form-base form-search"></form>
+                        <!--elements go here-->
+                        <!--elements go here-->
+                        <!--elements go here-->
+                        <h1>Welcome</h1>
+                        <div class="form-group content-textfield">
+                            <label class="content-label" for="emailInput">email</label>
+                            <input class="content-field" type="email" id="emailInput" placeholder="enter your email" required/>
+                            <div class="content-text message-to-user" id="message"></div>
+                            <button class="btn" id="sendMagicLinkButton">Sign-In / Sign-Up</button>
+                            <button class="btn btn-light" id="logoutButton">Sign-Out</button>
+                        </div>
+                        <!-- Content Field with STATUS has to be Styled and given a class! -->
+                        <div">
+                            <p class="content-text">By clicking “Sign-In / Sign-Up,” you acknowledge that you have read and agree to our <a href="/terms-of-use" target="_blank">Terms&nbsp;Service</a> and <a href="/privacy-policy" target="_blank">Privacy&nbsp;Policy</a>.</p>
+                            <p class="message-to-user content-text more-margin-top" id="userStatus">→ Checking authentication status...</p>
+                        </div>
+                        <!--end of elements-->
+                        <!--end of elements-->
+                        <!--end of elements-->
+                    </form>
+                </div>
+            </content>
         </div>
-    </header>
-    <!-- was isch de mit däm hie los? Das wird mir ja garnid aazeigt. -->
-    <h1 style="color:red" id="rootCheck">Checking location...</h1>
-    <content class="content-frame">
-        <div class="content">
-            <form action="" class="form-base form-search"></form>
-                <!--elements go here-->
-                <!--elements go here-->
-                <!--elements go here-->
-                <h1>Magic Link Authentication</h1>
-                <div class="form-group field-textarea content-textfield">
-                    <label class="content-label" for="emailInput">email</label>
-                    <input class="content-field" type="email" id="emailInput" placeholder="enter your email" required/>
-                    <div class="content-label message-to-user" id="message"></div>
-                    <button class="btn" id="sendMagicLinkButton">Sign-In / Sign-Up</button>
-                    <button class="btn btn-light" id="logoutButton">Sign-Out</button>
-                </div>
-                <!-- Content Field with STATUS has to be Styled and given a class! -->
-                <div>
-                    <p class="message-to-user" id="userStatus">Checking authentication status...</p>
-                </div>
-                <div class="spacer-bottom">
-                </div>
-                <!--end of elements-->
-                <!--end of elements-->
-                <!--end of elements-->
-            </form>
-        </div>
-    </content>
+    </div>
     <script src="js/menu.js"></script>
     <script src="js/dropdown-select.js"></script>
     <script type="module" src="connection/supabase.js"></script>
     <script type="module" src="js/magiclink.js"></script>
+    <!--  Do these have to be in every HTML File??? -->
     <script>
  
         // script prüft, ob wir uns auf der root des servers befinden

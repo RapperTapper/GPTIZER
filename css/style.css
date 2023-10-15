@@ -107,19 +107,47 @@ header {
     padding: 20px 20px;
 }
 
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.green-background {
+    background-color: var(--green);
+    width: 60%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.beige-background {
+    background-color: var(--beige);
+    width: 40%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 body {
     background-color: var(--white-background);
     margin: 0;
-    padding: 0px 20px 0px 20px;
     font-family: var(--font-family);
     font-weight: var(--font-weight-body);
     font-style: normal;
     font-size: var(--font-size-body);
 }
 
+.body-padding {
+    margin: 0;
+    padding: 0px 20px 0px 20px;
+}
+
 a {
-    color: var(--green);
-    text-decoration: none;
+    color: var(--black);
+    text-decoration: underline;
+    font-weight: 400;
   }
   
   a:hover {
@@ -134,6 +162,14 @@ a {
     align-items: center;
 }
 
+.content-frame-home {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 .content {
     display: flex;
     flex-direction: column;
@@ -142,6 +178,36 @@ a {
     /* width: 360px; Set a fixed width */
     width: calc(clamp(2.25rem, 0.0347rem + 3.2222vw, 4.0625rem)*10);
 }
+
+.content-home-green {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 10vw;
+    /* width: 360px; Set a fixed width */
+    /* width: calc(clamp(2.25rem, 0.0347rem + 3.2222vw, 4.0625rem)*10); */
+}
+
+.content-home-beige {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 5vw;
+    /* width: 360px; Set a fixed width */
+    /* width: calc(clamp(2.25rem, 0.0347rem + 3.2222vw, 4.0625rem)*10); */
+}
+
+/* .content-home-footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 5vw;
+} */
 
 .content-field {
     background-color: var(--white);
@@ -199,11 +265,13 @@ textarea {
     font-style: italic;
 }
 
-/* .content-btn {
-    display: flex;
+.content-text {
     width: 100%;
-    margin: 20px 0 15px 0;
-} */
+    margin: 0 0 2px 0;
+    padding: 0 20px;
+    color: var(--black);
+    font-style: italic;
+}
 
 .content-textfield {
     display: flex;
@@ -276,6 +344,15 @@ h1 {
     line-height: 40px;
     margin: 0 0 15px 0;
     text-align: center;
+}
+
+.quote {
+    color: var(--beige);
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 40px;
+    margin: 0 0 15px 0;
+    text-align: left;
 }
 
 .spacer-bottom {
@@ -355,4 +432,75 @@ select {
 
 .message-to-user {
     font-weight: 500;
+    /* text-align: center; */
+}
+
+.more-margin-top {
+    margin-top: 10px;
+}
+
+
+
+
+/* .footer-home {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: flex-end;
+    align-items: end;
+    background-color: transparent;
+
+    position: fixed;
+    width: calc(100% - 40px);
+    z-index: 11;
+    display: flex;
+    align-items: center; /* Vertically align contents
+    margin: 15px 0 0 0;
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;  
+    justify-content: space-between;
+} */
+
+
+/* Add styles for mobile */
+@media (max-width: 1199px) {
+    .flex-row {
+        display: flex;
+        flex-direction: column;
+    }
+    .green-background {
+        width: 100%;
+        order: 2;
+        height: 30vh;
+    }
+    
+    .beige-background {
+        order: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 70vh;
+        background-color: var(--white-background);
+    }
+    .content-home-beige {
+        /* margin-top: 5vh; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        /* width: 360px; Set a fixed width */
+        width: 360px;
+        padding: 0;
+    }
+    .quote {
+        text-align: center;
+    }
+    .body {
+        background-color: var(--white-background);
+    }
 }
