@@ -112,6 +112,10 @@ header {
     flex-direction: row;
 }
 
+.background-home {
+    background-color: var(--beige);
+}
+
 .green-background {
     background-color: var(--green);
     width: 60%;
