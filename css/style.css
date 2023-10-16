@@ -317,7 +317,7 @@ textarea {
   input[type="submit"]:hover {
     color: var(--white);
     background-color: var(--green-focus);
-    border-color: var(--green-focus);
+    border-color: var(--black);
   }
   
   .btn-light {
