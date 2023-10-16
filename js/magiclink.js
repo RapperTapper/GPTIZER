@@ -19,11 +19,11 @@ async function sendMagicLink() {
 // Funktion, um User Status zu aktualisieren
 function updateUserStatus(user) {
   const userStatusElement = document.getElementById('userStatus');
-  
+
   if (user) {
       userStatusElement.textContent = `→ Authenticated as: ${user.email}`;
   } else {
-      userStatusElement.textContent = "";
+      userStatusElement.textContent = "bla";
   }
 }
 
