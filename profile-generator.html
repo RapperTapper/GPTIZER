@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://use.typekit.net/bhl8svg.css">
     <link rel="icon" href="icons/favicon.svg" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="icons/favicon.svg">
+    <script src="https://unpkg.com/@supabase/supabase-js@2"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.29.0/dist/umd/supabase.min.js"></script>
 </head>
 <body class="body body-padding">
     <header>
@@ -50,20 +52,20 @@
                 <div class="form-group field-select content-field custom-select">
                     <select id="answer-language" name="answer-language">
                         <option value="" selected disabled hidden>choose language for answers</option>
-                        <option value="english">english</option>
+                        <!-- <option value="english">english</option>
                         <option value="french">french</option>
                         <option value="german">german</option>
-                        <option value="same as input">same as input</option>
+                        <option value="same as input">same as input</option> -->
                     </select>
                 </div>
                 <div class="form-group field-select content-field custom-select">
                     <!-- <label class="selector-label" for="answer-language">answer language -> please position outside of the box!!!</label> -->
-                    <select id="answer-language" name="answer-language">
+                    <select id="type" name="type">
                         <option value="" selected disabled hidden>choose whatever we put in here</option>
-                        <option value="option-01">option 01</option>
+                        <!-- <option value="option-01">option 01</option>
                         <option value="option-02">option 02</option>
                         <option value="option-03">option 03</option>
-                        <option value="option-04">option 04</option>
+                        <option value="option-04">option 04</option> -->
                     </select>
                 </div>
                 <div class="form-group content-textfield">
@@ -83,7 +85,8 @@
             </form>
         </div>
     </content>
+    <script type="module" src="./js/profile-generator.js"></script>
     <script src="js/menu.js"></script>
-    <script src="js/dropdown-select.js"></script>
+    <!-- <script src="js/dropdown-select.js" defer></script> -->
 </body>
 </html>

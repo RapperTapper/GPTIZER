@@ -4,14 +4,19 @@ console.log(window.location.origin);
 
 // Funktion, um Magic Link zu senden
 async function sendMagicLink() {
-    const email = document.getElementById('emailInput').value;
-    const { error } = await supa.auth.signIn({ email });
+    const emailInput = document.getElementById('emailInput').value;
+    const { error } = await supa.auth.signIn({
+        email: emailInput,
+        options: {
+            emailRedirectTo: 'https://gptizer.raphaelschnell.ch/profile-generator.html'
+          }
+        });
     
     if (error) {
         // console.error("Error sending magic link: ", error.message);
         message.textContent = "Please enter a valid email address.";
     } else {
-        console.log("Magic link sent to ", email);
+        console.log("Magic link sent to ", emailInput);
         message.textContent = "A magic link has been sent to your email.";
     }
 } 
