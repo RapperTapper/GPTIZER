@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>profile-generator - GPTIZER</title>
+    <title>Profile Generator - GPTIZER</title>
     <link rel="stylesheet" href="css/style.css" media="all" type="text/css">
     <link rel="stylesheet" href="https://use.typekit.net/bhl8svg.css">
     <link rel="icon" href="icons/favicon.svg" type="image/x-icon">
@@ -25,10 +25,10 @@
                 </div>
                 <ul class="main-menu" id="main-menu"style="display: none;">
                     <li>
-                        <a href="./profile.html">Profile</a>
+                        <a href="./profile.html">Account</a>
                     </li>
                     <li>
-                        <a href="./search.html">Search</a>
+                        <a href="./search.html">Advanced Profile Generator</a>
                     </li>
                 </ul>
             </div>                    
@@ -40,7 +40,7 @@
                 <!--elements go here-->
                 <!--elements go here-->
                 <!--elements go here-->
-                <h1>profile-generator</h1>
+                <h1>Profile Generator</h1>
                 <div class="form-group content-textfield">
                     <label class="content-label" for="input-user-instructions">extend profile with your own instructions</label>
                     <textarea class="content-field content-field-big" id="input-user-instructions" name="input-user-instructions" placeholder="your instructions"></textarea>
@@ -49,8 +49,8 @@
                     <label class="content-label" for="#-characters">prefered answer length (range possible)</label>
                     <textarea class="content-field" id="#-characters" name="#-characters" placeholder="500 or 300-700" rows="1"></textarea>
                 </div>
+                <label class="selector-label" for="answer-language">answer language</label>
                 <div class="form-group field-select content-field custom-select">
-                    <label class="selector-label" for="answer-language">answer language -> please position outside of the box!!!</label>
                     <select id="answer-language" name="answer-language">
                         <option value="" selected disabled hidden>choose language for answers</option>
                         <!-- <option value="english">english</option>
@@ -59,14 +59,20 @@
                         <option value="same as input">same as input</option> -->
                     </select>
                 </div>
+                <label class="selector-label" for="type">type</label>
                 <div class="form-group field-select content-field custom-select">
-                    <label class="selector-label" for="type">type -> please position outside of the box!!!</label>
                     <select id="type" name="type">
                         <option value="" selected disabled hidden>choose whatever we put in here</option>
                         <!-- <option value="option-01">option 01</option>
                         <option value="option-02">option 02</option>
                         <option value="option-03">option 03</option>
                         <option value="option-04">option 04</option> -->
+                    </select>
+                </div>
+                <label class="selector-label" for="category">category</label>
+                <div class="form-group field-select content-field custom-select">
+                    <select id="category" name="category">
+                        <option value="" selected disabled hidden>choose category</option>
                     </select>
                 </div>
                 <div class="form-group content-textfield">
