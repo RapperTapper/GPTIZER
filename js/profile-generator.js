@@ -34,7 +34,6 @@ const loadScript = (FILE_URL, async = true, type = "text/javascript") => {
 };
 
 
-
 async function loadSelectOptions() {
   const { data : typedata, error : typeerror } = await supa.from("type").select("*");
   if (typeerror) {
