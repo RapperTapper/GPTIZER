@@ -7,9 +7,9 @@ async function sendMagicLink() {
     const emailInput = document.getElementById('emailInput').value;
     const { error } = await supa.auth.signIn({
         email: emailInput,
-        options: {
-            emailRedirectTo: 'https://gptizer.raphaelschnell.ch/profile-generator.html'
-          }
+        // options: {
+        //     emailRedirectTo: 'https://gptizer.raphaelschnell.ch/profile-generator.html'
+        //   }
         });
     
     if (error) {
@@ -41,15 +41,33 @@ document.getElementById('sendMagicLinkButton').addEventListener('click', sendMag
 
 // Listener, für Änderungen des Auth Status
 // UserStatus wird aktualisiert, wenn sich der Auth Status ändert
+// supa.auth.onAuthStateChange((event, session) => {
+//   if (event === "SIGNED_IN") {
+//       console.log("User signed in: ", session.user);
+//       updateUserStatus(session.user);
+//   } else if (event === "SIGNED_OUT") {
+//       console.log("User signed out");
+//       updateUserStatus(null);
+//   }
+// });
+// neu mit abschnitt für redirect
 supa.auth.onAuthStateChange((event, session) => {
-  if (event === "SIGNED_IN") {
-      console.log("User signed in: ", session.user);
-      updateUserStatus(session.user);
-  } else if (event === "SIGNED_OUT") {
-      console.log("User signed out");
-      updateUserStatus(null);
-  }
-});
+    if (event === "SIGNED_IN") {
+        console.log("User signed in: ", session.user);
+        updateUserStatus(session.user);
+        // abfrage der Datenbank, ob bei user_data.name ein Eintrag vorhanden ist.
+        // wenn ja, dann redirect auf account.html
+        // wenn nicht, dann redirect auf account-setup.html
+        checkUsername();
+        async function checkUsername() {
+            const { data, error } = await supa.from("user_data").select("name");
+            if (data.name === null) {
+                redirect("account-setup.html");
+            } else {
+                redirect("account.html");
+            }
+            console.log(data);  
+        }}});
 
 // 3. Logout Logik
 async function logout() {

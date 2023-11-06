@@ -493,6 +493,11 @@ select {
 .user-profile {
     margin-top: 5px;
 }
+.user-profile:last-child .divider {
+    display: none;
+    margin-bottom: 0;
+}
+
 
 /* .footer-home {
     width: 40%;
