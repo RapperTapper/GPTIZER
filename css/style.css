@@ -157,6 +157,22 @@ a {
   a:hover {
     color: var(--black);
   }
+.flex-horizontal {
+    display: flex;
+    flex-direction: row;
+}
+
+.gap {
+    gap: 5px;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.space-between {
+    justify-content: space-between;
+}
 
 .content-frame {
     padding-top: 150px;
@@ -444,8 +460,39 @@ select {
     margin-top: 10px;
 }
 
+.divider {
+    width: 100%;
+    height: 1px;
+    background-color: var(--grey);
+    margin: 15px 0 15px 0;
+}
 
+/* .short-divider {
+    width: 60%;
+    height: 1px;
+    background-color: var(--grey);
+    margin: 15px 0 15px 0;
+} */
 
+.title {
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.profile-title {
+    font-weight: 500;
+    margin-bottom: 5px;
+    /* text-transform: uppercase; */
+}
+
+.short-description {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.user-profile {
+    margin-top: 5px;
+}
 
 /* .footer-home {
     width: 40%;
