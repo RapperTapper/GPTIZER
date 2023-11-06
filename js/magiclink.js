@@ -51,6 +51,18 @@ document.getElementById('sendMagicLinkButton').addEventListener('click', sendMag
 //   }
 // });
 // neu mit abschnitt für redirect
+
+checkUsername();
+    async function checkUsername() {
+        const { data, error } = await supa.from("user_data").select("name");
+        if (data.name === null) {
+            redirect("account-setup.html");
+        } else {
+            redirect("account.html");
+        }
+        console.log(data);  
+    }
+
 supa.auth.onAuthStateChange((event, session) => {
     if (event === "SIGNED_IN") {
         console.log("User signed in: ", session.user);
@@ -58,16 +70,7 @@ supa.auth.onAuthStateChange((event, session) => {
         // abfrage der Datenbank, ob bei user_data.name ein Eintrag vorhanden ist.
         // wenn ja, dann redirect auf account.html
         // wenn nicht, dann redirect auf account-setup.html
-        checkUsername();
-        async function checkUsername() {
-            const { data, error } = await supa.from("user_data").select("name");
-            if (data.name === null) {
-                redirect("account-setup.html");
-            } else {
-                redirect("account.html");
-            }
-            console.log(data);  
-        }}});
+        }});
 
 // 3. Logout Logik
 async function logout() {
