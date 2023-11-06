@@ -6,7 +6,7 @@ console.log(window.location.origin);
 async function sendMagicLink() {
     const emailInput = document.getElementById('emailInput').value;
     const { error } = await supa.auth.signIn({
-        email: emailInput,
+        email: emailInput//,
         // options: {
         //     emailRedirectTo: 'https://gptizer.raphaelschnell.ch/profile-generator.html'
         //   }
