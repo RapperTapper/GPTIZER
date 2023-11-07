@@ -91,7 +91,7 @@ window.onload = function() {
     checkUsername(initialUser, currentSession);
 };
 
-// // 3. Logout Logik
+// 3. Logout Logik
 // async function logout() {
 //   const { error } = await supa.auth.signOut();
 //   if (error) {
