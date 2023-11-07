@@ -24,7 +24,6 @@ async function sendMagicLink() {
 // Funktion, um User Status zu aktualisieren
 function updateUserStatus(user) {
   const userStatusElement = document.getElementById('userStatus');
-
   if (user) {
       userStatusElement.textContent = `→ Authenticated as: ${user.email}`;
   } else {
@@ -51,18 +50,29 @@ document.getElementById('sendMagicLinkButton').addEventListener('click', sendMag
 //   }
 // });
 // neu mit abschnitt für redirect
+function redirect(url) {
+    window.location.href = url;
+}
 
-
-async function checkUsername() {
-    const { data, error } = await supa.from("user_data").select("full_name");
-    if (data.full_name === null) {
-        redirect("account-setup.html");
-        console.log("redirect to account-setup.html");
+async function checkUsername(user, session) {
+    console.log("checkUsername");
+    console.log(user);
+    if (user) {
+        const { data } = await supa.from("user_data").select("nickname").eq('id', session.user.id).single();
+        console.log("Step 2:");
+        console.log(data);
+        if (data.nickname === null) {
+            redirect("account-setup.html");
+            console.log("redirect to account-setup.html");
+            console.log(data);
+        } else {
+            redirect("account.html");
+            console.log("redirect to account.html");
+            console.log(data);
+        }
     } else {
-        redirect("account.html");
-        console.log("redirect to account.html");
+        console.log("user not logged in");
     }
-    console.log(data);  
 }
 
 supa.auth.onAuthStateChange((event, session) => {
@@ -72,22 +82,24 @@ supa.auth.onAuthStateChange((event, session) => {
         // abfrage der Datenbank, ob bei user_data.name ein Eintrag vorhanden ist.
         // wenn ja, dann redirect auf account.html
         // wenn nicht, dann redirect auf account-setup.html
-        checkUsername();
+        checkUsername(session.user, session);
     }});
 
+
 window.onload = function() {
-    checkUsername();
+    const currentSession = supa.auth.session();
+    checkUsername(initialUser, currentSession);
 };
 
-// 3. Logout Logik
-async function logout() {
-  const { error } = await supa.auth.signOut();
-  if (error) {
-      console.error("Error during logout:", error);
-  } else {
-      updateUserStatus(null);
-      console.log("User logged out successfully.");
-  }
-}
+// // 3. Logout Logik
+// async function logout() {
+//   const { error } = await supa.auth.signOut();
+//   if (error) {
+//       console.error("Error during logout:", error);
+//   } else {
+//       updateUserStatus(null);
+//       console.log("User logged out successfully.");
+//   }
+// }
 
-document.getElementById('logoutButton').addEventListener('click', logout);
+// document.getElementById('logoutButton').addEventListener('click', logout);
