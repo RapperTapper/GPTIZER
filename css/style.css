@@ -311,6 +311,10 @@ textarea {
     align-items: center;
 }
 
+#logoutButton {
+    cursor: pointer; /* Show a pointer cursor on hover */
+}
+
 .btn {
     width: 100%;
     margin: 10px 0 15px 0;
@@ -394,6 +398,10 @@ select {
     position: relative;
 }
   
+.hidden {
+    display: none;
+}
+
 .custom-select select {
     display: none; /*hide original SELECT element: */
 }

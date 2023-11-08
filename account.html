@@ -32,8 +32,11 @@
                     <li>
                         <a href="./advanced-profile-generator.html">Advanced Profile Generator</a>
                     </li>
-                    <li id="logoutButton">
-                        <a href="/">Sign-Out</a>
+                    <li>
+                        <!-- <a href="/">Sign-Out</a> -->
+                        <!-- <div>Sign-Out</div> -->
+                        <a id="logoutButton">Sign-Out</a>
+                        <!-- <a href="">Sign-Out</a> -->
                     </li>
                 </ul>
             </div>                    
@@ -51,9 +54,9 @@
                         <div class="flex-horizontal space-between align-center">
                             <p class="profile-title">Job Application</p>
                             <div>
-                                <img class="rounded-edges" src="icons/Copy.svg" alt="copy">
-                                <img class="rounded-edges" src="icons/Edit.svg" alt="edit">
-                                <img class="rounded-edges" src="icons/Delete.svg" alt="delete">
+                                <img class="less-rounded-edges" src="icons/copy.svg" alt="copy">
+                                <img class="less-rounded-edges" src="icons/edit.svg" alt="edit">
+                                <img class="less-rounded-edges" src="icons/delete.svg" alt="delete">
                             </div>
                         </div>
                         <p class="short-description">short description of this profile that is a bit long you know. I am not shure what happens here.</p>
@@ -63,9 +66,9 @@
                         <div class="flex-horizontal space-between align-center">
                             <p class="profile-title">Essay Writing</p>
                             <div>
-                                <img class="less-rounded-edges" src="icons/Copy.svg" alt="copy">
-                                <img class="less-rounded-edges" src="icons/Edit.svg" alt="edit">
-                                <img class="less-rounded-edges" src="icons/Delete.svg" alt="delete">
+                                <img class="less-rounded-edges" src="icons/copy.svg" alt="copy">
+                                <img class="less-rounded-edges" src="icons/edit.svg" alt="edit">
+                                <img class="less-rounded-edges" src="icons/delete.svg" alt="delete">
                             </div>
                         </div>
                         <p class="short-description">short description of this essay task. So short description should be added in our database! So go and add it to your Figma file Boy!</p>
@@ -75,9 +78,9 @@
                         <div class="flex-horizontal space-between align-center">
                             <p class="profile-title">Essay Writing</p>
                             <div>
-                                <img src="icons/Copy_Rounded.svg" alt="copy">
-                                <img src="icons/Edit_Rounded.svg" alt="edit">
-                                <img src="icons/Delete_Rounded.svg" alt="delete">
+                                <img class="less-rounded-edges" src="icons/copy.svg" alt="copy">
+                                <img class="less-rounded-edges" src="icons/edit.svg" alt="edit">
+                                <img class="less-rounded-edges" src="icons/delete.svg" alt="delete">
                             </div>
                         </div>
                         <p class="short-description">short description of this essay task. So short description should be added in our database! So go and add it to your Figma file Boy!</p>
@@ -86,9 +89,14 @@
                 </div>
             </div>
         </div>
+        <div class="hidden">
+            <p id="userStatus"></p>
+            <div id="sendMagicLinkButton"></div>
+        </div>
     </content>
     <!-- <script type="module" src="./js/account.js"></script> -->
     <script src="js/menu.js"></script>
+    <script type="module" src="js/logout.js"></script>
     <script src="js/dropdown-select.js"></script> <!-- script added via module ./js/pagetitle.js because of bug! -->
 </body>
 </html>

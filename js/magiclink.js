@@ -22,12 +22,12 @@ async function sendMagicLink() {
 } 
 
 // Funktion, um User Status zu aktualisieren
-function updateUserStatus(user) {
+export function updateUserStatus(user) {
   const userStatusElement = document.getElementById('userStatus');
   if (user) {
       userStatusElement.textContent = `→ Authenticated as: ${user.email}`;
   } else {
-      userStatusElement.textContent = "→ Not authenticated while developing.";
+      userStatusElement.textContent = `→ Not authenticated while developing.`;
   }
 }
 
@@ -58,7 +58,12 @@ async function checkUsername(user, session) {
     console.log("checkUsername");
     console.log(user);
     if (user) {
-        const { data } = await supa.from("user_data").select("nickname").eq('id', session.user.id).single();
+        //Explanation - the initialUser = session.user :)
+        //console.log("initialUser.id")
+        // console.log(initialUser.id);
+        // console.log("session.user.id");
+        // console.log(session.user.id);
+        const { data } = await supa.from("user_data").select("nickname").eq('id', initialUser.id).single();
         console.log("Step 2:");
         console.log(data);
         if (data.nickname === null) {
@@ -92,14 +97,14 @@ window.onload = function() {
 };
 
 // 3. Logout Logik
-// async function logout() {
-//   const { error } = await supa.auth.signOut();
-//   if (error) {
-//       console.error("Error during logout:", error);
-//   } else {
-//       updateUserStatus(null);
-//       console.log("User logged out successfully.");
-//   }
-// }
+export async function logout() {
+  const { error } = await supa.auth.signOut();
+  if (error) {
+      console.error("Error during logout:", error);
+  } else {
+      updateUserStatus(null);
+      console.log("User logged out successfully.");
+  }
+}
 
-// document.getElementById('logoutButton').addEventListener('click', logout);
+document.getElementById('logoutButton').addEventListener('click', logout);
