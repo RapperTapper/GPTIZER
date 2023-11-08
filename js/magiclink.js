@@ -27,7 +27,7 @@ export function updateUserStatus(user) {
   if (user) {
       userStatusElement.textContent = `→ Authenticated as: ${user.email}`;
   } else {
-      userStatusElement.textContent = `→ Not authenticated while developing.`;
+      userStatusElement.textContent = `→ You are not authenticated.`;
   }
 }
 
