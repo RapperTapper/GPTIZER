@@ -91,9 +91,13 @@ supa.auth.onAuthStateChange((event, session) => {
     }});
 
 
-window.onload = function() {
+window.onload = async function() {
     const currentSession = supa.auth.session();
     checkUsername(initialUser, currentSession);
+    console.log("checked logOutStatus A");
+    const { data } = await supa.from("user_data").select("loggedOut").eq('id', initialUser.id).single();
+    console.log("checked logOutStatus B");
+    console.log(data);
 };
 
 // 3. Logout Logik

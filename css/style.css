@@ -1,7 +1,8 @@
 :root {
     --green: #275942;
-    --green-hover: #234032; /* use only for buttons */
-    --green-focus: #47896B; /* use only for buttons */
+    --green-hover: #3E7F61;
+    /* --green-hover: #234032; use only for buttons */
+    /* --green-focus: #47896B; use only for buttons */
     --beige: #E5C7B1;
     --white: #FFFFFF;
     --white-background: #F2F2F2;
