@@ -26,10 +26,12 @@ export function updateUserStatus(user) {
   const userStatusElement = document.getElementById('userStatus');
   if (user) {
       userStatusElement.textContent = `→ Authenticated as: ${user.email}`;
+      console.log("userStatusChangeToAuthenticatedInActioin");
   } else {
       userStatusElement.textContent = `→ You are not authenticated.`;
   }
 }
+
 
 // Prüfe und zeige den initialen User Status an
 const initialUser = supa.auth.user();
@@ -54,18 +56,23 @@ function redirect(url) {
     window.location.href = url;
 }
 
+
+
 async function checkUsername(user, session) {
     console.log("checkUsername");
     console.log(user);
+    console.log(session);
+    console.log("Step 1: check if user has a nickname already");
     if (user) {
         //Explanation - the initialUser = session.user :)
         //console.log("initialUser.id")
         // console.log(initialUser.id);
         // console.log("session.user.id");
         // console.log(session.user.id);
-        const { data } = await supa.from("user_data").select("nickname").eq('id', initialUser.id).single();
-        console.log("Step 2:");
+        const { data } = await supa.from("user_data").select("nickname").eq('id', user.id).single();
+        console.log("Step 2: check done. redirect to account-setup.html or account.html");
         console.log(data);
+        logOutPagesToFalse(user);
         if (data.nickname === null) {
             redirect("account-setup.html");
             console.log("redirect to account-setup.html");
@@ -91,18 +98,41 @@ supa.auth.onAuthStateChange((event, session) => {
     }});
 
 
-window.onload = async function() {
-    const currentSession = supa.auth.session();
-    checkUsername(initialUser, currentSession);
+window.onload = async function(session) {
+    // const currentSession = supa.auth.session();
     console.log("checked logOutStatus A");
-    const { data } = await supa.from("user_data").select("loggedOut").eq('id', initialUser.id).single();
-    console.log("checked logOutStatus B");
-    console.log(data);
+    console.log(session);
+    const actualUser = supa.auth.user();
+    console.log(actualUser);
+    if (actualUser === null) {
+        console.log("user not logged in");
+    } else {    
+        console.log(actualUser.id);
+        const { data } = await supa.from("user_data").select("loggedOut").eq('id', actualUser.id).single();
+        console.log("checked logOutStatus B");
+        console.log(data.loggedOut);
+        if (data.loggedOut === true) {
+            logout();
+            console.log("logout command sent")
+        } else {
+        checkUsername(initialUser, session);
+        }
+    }
 };
+
+async function logOutPagesToFalse() {
+    
+    let session = supa.auth.session(); //supabase.auth.session changed to supa.auth.session
+    const { error } = await supa
+    .from('user_data')
+    .update({ loggedOut: false })
+    .eq('id', session.user.id);
+}
 
 // 3. Logout Logik
 export async function logout() {
   const { error } = await supa.auth.signOut();
+  console.log("logout in action")
   if (error) {
       console.error("Error during logout:", error);
   } else {
