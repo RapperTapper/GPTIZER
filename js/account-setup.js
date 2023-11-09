@@ -8,7 +8,26 @@ document.getElementById('saveAccountEntries').addEventListener('click', saveAcco
 let isNicknameUpdated = true;
 
 window.onload = async function(initialUser, session) {
-    console.log("check if user_data.nickname exists");
+    console.log("check if user_data.entries exist");
+    console.log(initialUser);
+    console.log(session);
+    if (initialUser) {
+        const { active_user } = await supa.from("user_data").select(["name", "surname", "nickname", "profession"]).eq('id', initialUser.id);
+        console.log("Next Level: Data_load done");
+        console.log(active_user);
+        if (active_user.nickname === null) {
+            console.log("No nickname found. User has to setup account.");
+        } else {
+            console.log("Nickname found. User has already setup account. Now going to display account entries");
+            document.getElementById('username').innerHTML = active_user.name;
+            document.getElementById('usersurname').innerHTML = active_user.surname;
+            document.getElementById('nickname').innerHTML = active_user.nickname;
+            document.getElementById('profession').innerHTML = active_user.profession;
+        }
+    } else {
+        console.log("user not logged in");
+        redirect("index.html");
+    }
 }
 
 async function saveAccountEntries() {
@@ -26,43 +45,43 @@ async function saveAccountEntries() {
         console.log('Please fill out all fields');   
     } else {
     // check if nickname already exists
-    document.getElementById('saveAccountEntries').innerHTML = '<i>Saving...</i>';
-    try {
-        const { check_nickname, error: error_nickname } = await supa
-            .from('user_data')
-            .update({ nickname: nickname_input.value })
-            .eq('id', initialUser.id);
-        if (error_nickname) { 
-            document.getElementById('saveAccountEntries').innerHTML = 'Save';
-            isNicknameUpdated = false;
-            throw error_nickname;
-        } else {
-            console.log('nickname updated');
-        }
-    }   catch (error_nickname) {
-            console.log(error_nickname.message);
-            alert('Nickname already exists');
-            console.log('Nickname already exists');
-        }
-    }
-    if (isNicknameUpdated == true) {
+        document.getElementById('saveAccountEntries').innerHTML = '<i>Saving...</i>';
         try {
-            const { data, error } = await supa
+            const { check_nickname, error: error_nickname } = await supa
                 .from('user_data')
-                .update({ name: name_input.value, surname: surname_input.value, profession: profession_input.value })
+                .update({ nickname: nickname_input.value })
                 .eq('id', initialUser.id);
-            if (error) { 
+            if (error_nickname) { 
                 document.getElementById('saveAccountEntries').innerHTML = 'Save';
-                throw error;
+                isNicknameUpdated = false;
+                throw error_nickname;
             } else {
-                document.getElementById('saveAccountEntries').innerHTML = 'Update';
-                console.log('user_data updated');
+                console.log('nickname updated');
             }
-        }   catch (error) {
-            console.log(error.message);
-            alert('Something went wrong');
-            console.log('Something went wrong');
-            document.getElementById('saveAccountEntries').innerHTML = 'Save';
+        }   catch (error_nickname) {
+                console.log(error_nickname.message);
+                alert('Nickname already exists! Please choose another one.');
+                console.log('Nickname already exists');
+            }
+        if (isNicknameUpdated == true) {
+            try {
+                const { data, error } = await supa
+                    .from('user_data')
+                    .update({ name: name_input.value, surname: surname_input.value, profession: profession_input.value })
+                    .eq('id', initialUser.id);
+                if (error) { 
+                    document.getElementById('saveAccountEntries').innerHTML = 'Save';
+                    throw error;
+                } else {
+                    document.getElementById('saveAccountEntries').innerHTML = 'Update';
+                    console.log('user_data updated');
+                }
+            }   catch (error) {
+                console.log(error.message);
+                alert('Something went wrong');
+                console.log('Something went wrong');
+                document.getElementById('saveAccountEntries').innerHTML = 'Save';
+            }
         }
     }
     isNicknameUpdated = true;
