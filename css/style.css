@@ -386,6 +386,10 @@ h1 {
     height: 25px;
 }
 
+.onHover {
+    cursor: pointer; /* Show a pointer cursor on hover */
+}
+
 select {
     border: none;
   }
