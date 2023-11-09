@@ -28,17 +28,17 @@ async function saveAccountEntries() {
             .from('user_data')
             .update({ nickname: nickname_input.value })
             .eq('id', initialUser.id);
-        if (error) { 
+        if (error_nickname) { 
             document.getElementById('saveAccountEntries').innerHTML = 'Save';
             isNicknameUpdated = false;
             throw error_nickname;
         } else {
-            console.log('nickname updated')
+            console.log('nickname updated');
         }
     }   catch (error_nickname) {
-            console.log(error_nickname.message)
-            alert('Nickname already exists')
-            console.log('Nickname already exists')
+            console.log(error_nickname.message);
+            alert('Nickname already exists');
+            console.log('Nickname already exists');
         }
     }
     if (isNicknameUpdated == true) {
@@ -51,17 +51,17 @@ async function saveAccountEntries() {
                 document.getElementById('saveAccountEntries').innerHTML = 'Save';
                 throw error;
             } else {
-                document.getElementById('saveAccountEntries').innerHTML = 'Save';
-                console.log('user_data updated')
+                document.getElementById('saveAccountEntries').innerHTML = 'Update';
+                console.log('user_data updated');
             }
         }   catch (error) {
-            console.log(error.message)
-            alert('Something went wrong')
-            console.log('Something went wrong')
+            console.log(error.message);
+            alert('Something went wrong');
+            console.log('Something went wrong');
+            document.getElementById('saveAccountEntries').innerHTML = 'Save';
         }
     }
     isNicknameUpdated = true;
-    document.getElementById('saveAccountEntries').innerHTML = 'Save';
 }
     
     // const { data, error } = await supa
