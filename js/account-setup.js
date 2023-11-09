@@ -7,6 +7,10 @@ document.getElementById('saveAccountEntries').addEventListener('click', saveAcco
 
 let isNicknameUpdated = true;
 
+window.onload = async function(initialUser, session) {
+    console.log("check if user_data.nickname exists");
+}
+
 async function saveAccountEntries() {
     console.log('saveAccountEntries');
     let name_input = document.getElementById('username');
