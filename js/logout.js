@@ -1,9 +1,5 @@
 import { supa } from "../connection/supabase.js";
 
-// import { updateUserStatus } from './magiclink.js';
-
-// import { logout } from "./magiclink.js";
-
 async function logOutPages() {
     // user_data.loggedOut = true;
     let session = supa.auth.session(); //supabase.auth.session changed to supa.auth.session
