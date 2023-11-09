@@ -7,10 +7,9 @@ document.getElementById('saveAccountEntries').addEventListener('click', saveAcco
 
 let isNicknameUpdated = true;
 
-window.onload = async function(initialUser, session) {
+window.onload = async function(initialUser) {
     console.log("check if user_data.entries exist");
     console.log(initialUser);
-    console.log(session);
     if (initialUser) {
         const { active_user } = await supa.from("user_data").select(["name", "surname", "nickname", "profession"]).eq('id', initialUser.id);
         console.log("Next Level: Data_load done");
