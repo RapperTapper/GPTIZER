@@ -41,53 +41,50 @@
     </header>
     <content class="content-frame">
         <div class="content">
-            <form action="" class="form-base form-search"></form>
-                <!--elements go here-->
-                <!--elements go here-->
-                <!--elements go here-->
+                <form action="" class="form-base form-search"></form>
                 <h1>Profile Generator</h1>
                 <div class="form-group content-textfield">
-                    <label class="content-label" for="input-user-instructions">extend profile with your own instructions</label>
-                    <textarea class="content-field content-field-big" id="input-user-instructions" name="input-user-instructions" placeholder="your instructions"></textarea>
+                    <label class="content-label" for="input-user-instructions">Extend profile with your own instructions</label>
+                    <textarea class="content-field content-field-big" id="input-user-instructions" name="input-user-instructions" placeholder="Your instructions"></textarea>
                 </div>
-                <div class="form-group content-textfield">
-                    <label class="content-label" for="#-characters">prefered answer length (range possible)</label>
-                    <textarea class="content-field" id="#-characters" name="#-characters" placeholder="500 or 300-700" rows="1"></textarea>
-                </div>
-                <label class="selector-label" for="answer-language">answer language</label>
+                <label class="selector-label" for="answer-language">Answer language</label>
                 <div class="form-group field-select content-field custom-select">
                     <select id="answer-language" name="answer-language">
-                        <option value="" selected disabled hidden>choose language for answers</option>
-                        <!-- <option value="english">english</option>
-                        <option value="french">french</option>
-                        <option value="german">german</option>
-                        <option value="same as input">same as input</option> -->
+                        <option value="" selected disabled hidden>Choose language for answers</option>
                     </select>
                 </div>
-                <label class="selector-label" for="type">type</label>
+                <div class="form-group content-textfield">
+                    <label class="content-label" for="#-characters">Prefered answer length (range possible)</label>
+                    <textarea class="content-field" id="#-characters" name="#-characters" placeholder="500 or 300-700" rows="1"></textarea>
+                </div>
+                <label class="selector-label" for="type">Type</label>
                 <div class="form-group field-select content-field custom-select">
                     <select id="type" name="type">
-                        <option value="" selected disabled hidden>choose whatever we put in here</option>
+                        <option value="" selected disabled hidden>Choose whatever we put in here</option>
                         <!-- <option value="option-01">option 01</option>
                         <option value="option-02">option 02</option>
                         <option value="option-03">option 03</option>
                         <option value="option-04">option 04</option> -->
                     </select>
                 </div>
-                <label class="selector-label" for="category">category</label>
+                <label class="selector-label" for="category">Category</label>
                 <div class="form-group field-select content-field custom-select">
                     <select id="category" name="category">
-                        <option value="" selected disabled hidden>choose category</option>
+                        <option value="" selected disabled hidden>Choose Category</option>
                     </select>
                 </div>
                 <div class="form-group content-textfield">
-                    <label class="content-label" for="profile-name">name your profile</label>
-                    <textarea class="content-field" id="profile-name" name="profile-name" placeholder="nice email to my boss" rows="1"></textarea>
+                    <label class="content-label" for="profile-name">Profile Name</label>
+                    <textarea class="content-field" id="profile-name" name="profile-name" placeholder="Profile Name" rows="1"></textarea>
                 </div>
-                <button class="btn">Search</button>
+                <button class="btn">Generate Prompt</button>
+                <div class="form-group content-textfield">
+                    <label class="content-label" for="input-prompt">Prompt</label>
+                    <textarea class="content-field content-field-big" id="input-prompt" name="input-prompt" placeholder="Write your own prompt or generate one"></textarea>
+                </div>
                 <div class="content-row">
                     <button class="btn btn-light">Reset</button>
-                    <button class="btn btn-light">Save</button>
+                    <button class="btn">Save</button>
                 </div>
                 <div class="spacer-bottom">
                 </div>

@@ -27,12 +27,15 @@
 
 header {
     position: fixed;
-    width: calc(100% - 40px);
+    background-color: var(--white-background);
+    height: 60px;
+    position: fixed;
+    width: 100vw;
     z-index: 1;
     display: flex;
     align-items: center; /* Vertically align contents */
-    margin: 15px 0 0 0;
-    padding: 0;
+    margin: 0 0 0 -20px;
+    padding: 15px 20px 0 20px;
     display: -webkit-box;
     display: -ms-flexbox;
     -webkit-box-pack: justify;
@@ -185,7 +188,6 @@ body {
 }
 
 p {
-    text-align: center;
     margin: 0;
     padding: 0;
 }
