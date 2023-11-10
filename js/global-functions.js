@@ -5,7 +5,7 @@ export function redirect(url) {
     window.location.href = url;
 }
 
-function checkNicknameCharacters() {
+export function checkNicknameCharacters() {
     let nickname_input = document.getElementById('nickname');
     let pattern = /^[A-Za-z0-9-_.]*$/; // Allow empty string - so no error message is shown
     // let pattern = /^[A-Za-z0-9-_.]+$/; // Do not allow empty string
@@ -15,7 +15,7 @@ function checkNicknameCharacters() {
     }
 }
 
-async function logOutPagesToFalse() {
+export async function logOutPagesToFalse() {
     let session = supa.auth.session(); //supabase.auth.session changed to supa.auth.session
     const { error } = await supa
     .from('user_data')
