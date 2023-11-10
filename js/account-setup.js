@@ -10,7 +10,7 @@ console.log(initialUser);
 console.log(initialUser.id);
 
 document.getElementById('saveAccountEntries').addEventListener('click', saveAccountEntries);
-document.getElementById('loadAccountEntries').addEventListener('click', loadAccountEntries);
+// document.getElementById('loadAccountEntries').addEventListener('click', loadAccountEntries);
 document.getElementById('nickname').addEventListener('input', checkNicknameCharacters);
 
 let isNicknameUpdated = true;
