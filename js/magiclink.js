@@ -116,4 +116,4 @@ export async function logout() {
   }
 }
 
-document.getElementById('logoutButton').addEventListener('click', logout);
+// document.getElementById('logoutButton').addEventListener('click', logout);

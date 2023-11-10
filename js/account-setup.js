@@ -37,12 +37,11 @@ window.onload = async function() {
         } else {
             console.log("Nickname found. User has already setup account. Now going to display account entries");
             console.log(theActiveUser);
-            console.log(theActiveUser.name);
-            console.log(theActiveUser.nickname);
             document.getElementById('username').value = theActiveUser.name;
             document.getElementById('usersurname').value = theActiveUser.surname;
             document.getElementById('nickname').value = theActiveUser.nickname;
             document.getElementById('profession').value = theActiveUser.profession;
+            document.getElementById('saveAccountEntries').innerHTML = 'Update';
         }
     } else {
         console.log("user not logged in");
@@ -95,6 +94,7 @@ async function saveAccountEntries() {
                 } else {
                     document.getElementById('saveAccountEntries').innerHTML = 'Update';
                     console.log('user_data updated');
+                    updateMessage.textContent = "Account updated.";
                 }
             }   catch (error) {
                 console.log(error.message);
