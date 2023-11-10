@@ -43,6 +43,10 @@ header {
     justify-content: space-between;
 }
 
+.no-header-background{
+    background-color: transparent;
+}
+
 .logo img {
     height: 30px;
 }
