@@ -121,7 +121,6 @@ window.onload = async function(session) {
 };
 
 async function logOutPagesToFalse() {
-    
     let session = supa.auth.session(); //supabase.auth.session changed to supa.auth.session
     const { error } = await supa
     .from('user_data')

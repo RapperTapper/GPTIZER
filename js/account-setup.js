@@ -1,27 +1,44 @@
 import { supa } from "../connection/supabase.js";
 
+import { logOutPagesToFalse } from "./account.js";
+
 const initialUser = supa.auth.user();
 console.log(initialUser);
+console.log(initialUser.id);
 
 document.getElementById('saveAccountEntries').addEventListener('click', saveAccountEntries);
+document.getElementById('loadAccountEntries').addEventListener('click', loadAccountEntries);
 
 let isNicknameUpdated = true;
 
-window.onload = async function(initialUser) {
+window.onload = async function() {
+// async function loadAccountEntries() {
     console.log("check if user_data.entries exist");
-    console.log(initialUser);
+    const initialUser = supa.auth.user();
+    console.log(initialUser.id);
+    logOutPagesToFalse(initialUser);
     if (initialUser) {
-        const { active_user } = await supa.from("user_data").select(["name", "surname", "nickname", "profession"]).eq('id', initialUser.id);
+        console.log(initialUser.id);
+        const { data : [theActiveUser] } = await supa
+            .from('user_data')
+            // .select("*")
+            .select(`name,surname,nickname,profession`)
+            .eq('id', initialUser.id);
+        // const { data, error } = await supa.from("user_data").select(["name","surname","nickname","profession"]).eq('id', initialUser.id);
+        // const { active_user } = await supa.from("user_data").select(["name", "surname", "nickname", "profession"]).eq('id', initialUser.id);
         console.log("Next Level: Data_load done");
-        console.log(active_user);
-        if (active_user.nickname === null) {
+        console.log(theActiveUser);
+        if (theActiveUser.nickname === null) {
             console.log("No nickname found. User has to setup account.");
         } else {
             console.log("Nickname found. User has already setup account. Now going to display account entries");
-            document.getElementById('username').innerHTML = active_user.name;
-            document.getElementById('usersurname').innerHTML = active_user.surname;
-            document.getElementById('nickname').innerHTML = active_user.nickname;
-            document.getElementById('profession').innerHTML = active_user.profession;
+            console.log(theActiveUser);
+            console.log(theActiveUser.name);
+            console.log(theActiveUser.nickname);
+            document.getElementById('username').value = theActiveUser.name;
+            document.getElementById('usersurname').value = theActiveUser.surname;
+            document.getElementById('nickname').value = theActiveUser.nickname;
+            document.getElementById('profession').value = theActiveUser.profession;
         }
     } else {
         console.log("user not logged in");
