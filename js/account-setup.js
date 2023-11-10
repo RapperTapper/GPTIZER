@@ -1,6 +1,9 @@
 import { supa } from "../connection/supabase.js";
+import { redirect } from "./global-functions.js";
+import { checkNicknameCharacters } from "./global-functions.js";
 
 import { logOutPagesToFalse } from "./account.js";
+
 
 const initialUser = supa.auth.user();
 console.log(initialUser);
@@ -8,6 +11,7 @@ console.log(initialUser.id);
 
 document.getElementById('saveAccountEntries').addEventListener('click', saveAccountEntries);
 document.getElementById('loadAccountEntries').addEventListener('click', loadAccountEntries);
+document.getElementById('nickname').addEventListener('input', checkNicknameCharacters);
 
 let isNicknameUpdated = true;
 
@@ -101,33 +105,4 @@ async function saveAccountEntries() {
         }
     }
     isNicknameUpdated = true;
-}
-    
-    // const { data, error } = await supa
-    //     .from('user_data')
-    //     .update({
-    //         username: 'name',
-    //         surname: 'surname',
-    //         profession: 'profession',
-    //         nickname: 'nickname'
-    //     })
-    //     .eq('id', initialUser.id);
-    
-    
-        // structure needed?
-    // if (data.length == 0) {
-    //     const { data, error } = await supa
-    //         .from('user_data')
-    //         .insert([
-    //             { id: initialUser.id, loggedOut: false, accountSetup: true }
-    //         ]);
-    // } else {
-    //     const { data, error } = await supa
-    //         .from('user_data')
-    //         .update({ accountSetup: true })
-    //         .eq('id', initialUser.id);
-    // }
-
-function redirect(url) {
-    window.location.href = url;
 }

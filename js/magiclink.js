@@ -1,4 +1,6 @@
 import { supa } from "../connection/supabase.js";
+import { redirect } from "./global-functions.js";
+import { logOutPagesToFalse } from "./global-functions.js";
 
 console.log(window.location.origin);
 
@@ -39,24 +41,6 @@ updateUserStatus(initialUser);
 
 // Eventlistener für Magic Link Button
 document.getElementById('sendMagicLinkButton').addEventListener('click', sendMagicLink);
-
-// Listener, für Änderungen des Auth Status
-// UserStatus wird aktualisiert, wenn sich der Auth Status ändert
-// supa.auth.onAuthStateChange((event, session) => {
-//   if (event === "SIGNED_IN") {
-//       console.log("User signed in: ", session.user);
-//       updateUserStatus(session.user);
-//   } else if (event === "SIGNED_OUT") {
-//       console.log("User signed out");
-//       updateUserStatus(null);
-//   }
-// });
-// neu mit abschnitt für redirect
-function redirect(url) {
-    window.location.href = url;
-}
-
-
 
 async function checkUsername(user, session) {
     console.log("checkUsername");
@@ -119,14 +103,6 @@ window.onload = async function(session) {
         }
     }
 };
-
-async function logOutPagesToFalse() {
-    let session = supa.auth.session(); //supabase.auth.session changed to supa.auth.session
-    const { error } = await supa
-    .from('user_data')
-    .update({ loggedOut: false })
-    .eq('id', session.user.id);
-}
 
 // 3. Logout Logik
 export async function logout() {
