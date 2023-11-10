@@ -1,7 +1,18 @@
 import { supa } from "../connection/supabase.js";
+import { redirect } from "./global-functions.js";
 
 const initialUser = supa.auth.user();
 console.log(initialUser);
+
+let elements = document.getElementsByClassName('createNewProfileRedirect');
+for(let i = 0; i < elements.length; i++){
+    elements[i].addEventListener('click', createNewProfileRedirect);
+}
+console.log("createNewProfileRedirect");
+
+function createNewProfileRedirect() {
+    redirect("profile-generator.html");
+}
 
 export async function logOutPagesToFalse() {
     let session = supa.auth.session(); //supabase.auth.session changed to supa.auth.session

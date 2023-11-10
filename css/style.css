@@ -114,6 +114,10 @@ header {
     content: url('../icons/menu_hover.svg');
 }
 
+.italic {
+    font-style: italic;
+}
+
 .icon-background {
     /* box-shadow: var(--box-shadow); */
     background-color: var(--green);
