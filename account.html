@@ -23,7 +23,7 @@
         <div class="header-right">
             <div class="menu menu-wrapper">
                 <div class="user-icon" id="user-icon">
-                    <img src="icons/user.svg" alt="user menu" onclick="toggleMenu()" />
+                    <img src="icons/menu.svg" alt="user menu" id="menu-icon" onclick="toggleMenu()" />
                 </div>
                 <ul class="main-menu" id="main-menu"style="display: none;">
                     <li>
@@ -50,19 +50,27 @@
                     <div class="flex-horizontal space-between align-center">
                         <p class="title">John Doe</p>
                         <a href="account-setup.html">
-                            <img class="less-rounded-edges" src="icons/edit.svg" alt="Edit Account" title="Edit Account">
+                            <img class="icon-background" src="icons/edit.svg" alt="Edit Account" title="Edit Account">
                         </a>
                         </div>
                     <p class="short-description">Webdeveloper</p>
+                    <div class="divider"></div>
+                    <div class="flex-horizontal space-between align-center">
+                        <p class="profile-title">Create New Profile</p>
+                        <a href="account-setup.html">
+                            <img class="icon-background icon-background-new" src="icons/create_new.svg" alt="Edit Account" title="Edit Account">
+                        </a>
+                        </div>
+                    <p class="short-description">Klick to generate a new Profile</p>
                     <div class="divider"></div>
                     <div class="user-profile">
                         <div class="flex-horizontal space-between align-center">
                             <p class="profile-title">Job Application</p>
                             <div>
-                                <img class="less-rounded-edges onHover" src="icons/copy.svg" alt="Copy Prompt" title="Copy Prompt">
-                                <img class="less-rounded-edges onHover" src="icons/duplicate.svg" alt="Duplicate Profile" title="Duplicate Profile">
-                                <img class="less-rounded-edges onHover" src="icons/edit.svg" alt="Edit Profile" title="Edit Profile">
-                                <img class="less-rounded-edges onHover" src="icons/delete.svg" alt="Delete Profile" title="Delete Profile">
+                                <img class="icon-background icon-background-breit onHover" src="icons/copy.svg" alt="Copy Prompt" title="Copy Prompt">
+                                <img class="icon-background onHover" src="icons/duplicate.svg" alt="Duplicate Profile" title="Duplicate Profile">
+                                <img class="icon-background onHover" src="icons/edit.svg" alt="Edit Profile" title="Edit Profile">
+                                <img class="icon-background onHover" src="icons/delete.svg" alt="Delete Profile" title="Delete Profile">
                             </div>
                         </div>
                         <p class="short-description">short description of this profile that is a bit long you know. I am not shure what happens here.</p>
@@ -72,10 +80,10 @@
                         <div class="flex-horizontal space-between align-center">
                             <p class="profile-title">Essay Writing</p>
                             <div>
-                                <img class="less-rounded-edges onHover" src="icons/copy.svg" alt="Copy Prompt" title="Copy Prompt">
-                                <img class="less-rounded-edges onHover" src="icons/duplicate.svg" alt="Duplicate Profile" title="Duplicate Profile">
-                                <img class="less-rounded-edges onHover" src="icons/edit.svg" alt="Edit Profile" title="Edit Profile">
-                                <img class="less-rounded-edges onHover" src="icons/delete.svg" alt="Delete Profile" title="Delete Profile">
+                                <img class="icon-background icon-background-breit onHover" src="icons/copy.svg" alt="Copy Prompt" title="Copy Prompt">
+                                <img class="icon-background onHover" src="icons/duplicate.svg" alt="Duplicate Profile" title="Duplicate Profile">
+                                <img class="icon-background onHover" src="icons/edit.svg" alt="Edit Profile" title="Edit Profile">
+                                <img class="icon-background onHover" src="icons/delete.svg" alt="Delete Profile" title="Delete Profile">
                             </div>
                         </div>
                         <p class="short-description">short description of this essay task. So short description should be added in our database! So go and add it to your Figma file Boy!</p>
@@ -84,11 +92,11 @@
                     <div class="user-profile">
                         <div class="flex-horizontal space-between align-center">
                             <p class="profile-title">Essay Writing</p>
-                            <div>
-                                <img class="less-rounded-edges onHover" src="icons/copy.svg" alt="Copy Prompt" title="Copy Prompt">
-                                <img class="less-rounded-edges onHover" src="icons/duplicate.svg" alt="Duplicate Profile" title="Duplicate Profile">
-                                <img class="less-rounded-edges onHover" src="icons/edit.svg" alt="Edit Profile" title="Edit Profile">
-                                <img class="less-rounded-edges onHover" src="icons/delete.svg" alt="Delete Profile" title="Delete Profile">
+                            <div> <!--  less-rounded-edges css style löschen -->
+                                <img class="less-rounded-edges onHover" src="icons/old/copy.svg" alt="Copy Prompt" title="Copy Prompt">
+                                <img class="less-rounded-edges onHover" src="icons/old/duplicate.svg" alt="Duplicate Profile" title="Duplicate Profile">
+                                <img class="less-rounded-edges onHover" src="icons/old/edit.svg" alt="Edit Profile" title="Edit Profile">
+                                <img class="less-rounded-edges onHover" src="icons/old/delete.svg" alt="Delete Profile" title="Delete Profile">
                             </div>
                         </div>
                         <p class="short-description">short description of this essay task. So short description should be added in our database! So go and add it to your Figma file Boy!</p>

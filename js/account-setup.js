@@ -94,7 +94,7 @@ async function saveAccountEntries() {
                 } else {
                     document.getElementById('saveAccountEntries').innerHTML = 'Update';
                     console.log('user_data updated');
-                    updateMessage.textContent = "Account updated.";
+                    updateMessage.textContent = "Account has been updated.";
                 }
             }   catch (error) {
                 console.log(error.message);
