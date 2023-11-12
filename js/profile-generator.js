@@ -15,7 +15,9 @@ let areaOfUseSelect = document.getElementById("area-of-use");
 let answerLength = document.getElementById("answer-length");
 let inputPrompt = document.getElementById("input-prompt");
 
+//
 let profileId = null;
+console.log("profileId: ", profileId);
 
 loadSelectOptions();
 
