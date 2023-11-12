@@ -210,9 +210,9 @@ function resetProfile() {
     document.getElementById("profile-description").value = "";
     document.getElementById("input-user-instructions").value = "";
     //those dropdown-reset are not working jet.
-        document.getElementById("type").value = "";
-        document.getElementById("answer-language").value = "";
-        document.getElementById("area-of-use").value = "";
+        // document.getElementById("type").value = "";
+        // document.getElementById("answer-language").value = "";
+        // document.getElementById("area-of-use").value = "";
     document.getElementById("answer-length").value = "";
     document.getElementById("input-prompt").value = "";
 

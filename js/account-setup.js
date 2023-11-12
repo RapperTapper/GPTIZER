@@ -11,7 +11,6 @@ console.log(initialUser.id);
 
 document.getElementById('saveAccountEntries').addEventListener('click', saveAccountEntries);
 // document.getElementById('loadAccountEntries').addEventListener('click', loadAccountEntries);
-document.getElementById('goToAccount').addEventListener('click', goToAccount);
 document.getElementById('nickname').addEventListener('input', checkNicknameCharacters);
 
 let isNicknameUpdated = null;

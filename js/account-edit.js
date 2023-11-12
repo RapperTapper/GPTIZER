@@ -12,6 +12,7 @@ console.log(initialUser.id);
 document.getElementById('updateAccountEntries').addEventListener('click', updateAccountEntries);
 // document.getElementById('loadAccountEntries').addEventListener('click', loadAccountEntries);
 document.getElementById('nickname').addEventListener('input', checkNicknameCharacters);
+document.getElementById('goToAccount').addEventListener('click', goToAccount);
 
 let isNicknameUpdated = true;
 
@@ -105,4 +106,8 @@ async function updateAccountEntries() {
         }
     }
     isNicknameUpdated = true;
+}
+
+function goToAccount() {
+    redirect("account.html");
 }
