@@ -5,14 +5,14 @@ document.getElementById("reset-profile").addEventListener("click", resetProfile)
 document.getElementById("save-profile").addEventListener("click", saveProfile);
 
 const initialUser = supa.auth.user();
-const profileName = document.getElementById("profile-name");
-const shortDescription = document.getElementById("profile-description");
-const inputUserInstruction = document.getElementById("input-user-instructions");
-const typeSelect = document.getElementById("type");
-const answerLanguageSelect = document.getElementById("answer-language");
-const areaOfUseSelect = document.getElementById("area-of-use");
-const answerLength = document.getElementById("answer-length");
-const inputPrompt = document.getElementById("input-prompt");
+let profileName = document.getElementById("profile-name");
+let Description = document.getElementById("profile-description");
+let inputUserInstruction = document.getElementById("input-user-instructions");
+let typeSelect = document.getElementById("type");
+let answerLanguageSelect = document.getElementById("answer-language");
+let areaOfUseSelect = document.getElementById("area-of-use");
+let answerLength = document.getElementById("answer-length");
+let inputPrompt = document.getElementById("input-prompt");
 
 loadSelectOptions();
 
@@ -123,33 +123,45 @@ function generatePrompt() {
     //     alert("Please fill in a profile name.");
     //     return;
     // }
-    // if (shortDescription.value === "") {
+    // if (Description.value === "") {
     //     alert("Please fill in a short description.");
     //     return;
     // }
     if (inputUserInstruction.value === "") {
         alert("Please fill in a user instruction.");
+        console.log(inputUserInstruction.value)
         return;
     }
     if (typeSelect.value === "") {
         alert("Please select a type.");
+        console.log(typeSelect.value)
         return;
     }
     if (answerLanguageSelect.value === "") {
         alert("Please select an answer language.");
+        console.log(answerLanguageSelect.value)
         return;
     }
     if (areaOfUseSelect.value === "") {
         alert("Please select an area of use.");
+        console.log(areaOfUseSelect.value)
         return;
     }
     if (answerLength.value === "") {
         alert("Please fill in an answer length.");
+        console.log(answerLength.value)
         return;
     }
     
     // generate prompt
-    inputPrompt.value = "#This is a customized prompt for individual instructions.\nBased on the following user inputs, please generate an appropriate text: \nSpecific Details or Instructions: " + inputUserInstruction.value + "\nLanguage to be Used: " + answerLanguageSelect.value + "\nType of text: " + areaOfUseSelect.value + "\nDesired text length: " + answerLength.value + "\nThank you for your help!"; 
+    let typeSelectText = type.options[type.selectedIndex].textContent;
+    console.log(typeSelectText);
+    let answerLanguageSelectText = answerLanguageSelect.options[answerLanguageSelect.selectedIndex].textContent;
+    console.log(answerLanguageSelectText);
+    let areaOfUseSelectText = areaOfUseSelect.options[areaOfUseSelect.selectedIndex].textContent;
+    console.log(areaOfUseSelectText);
+
+    inputPrompt.value = "#This is a customized prompt for individual instructions.\nBased on the following user inputs, please generate an appropriate text: \nSpecific Details or Instructions: " + inputUserInstruction.value + "\nLanguage to be Used: " + answerLanguageSelectText + "\nType of text: " + areaOfUseSelectText + "\nText Category: " + typeSelectText + "\nDesired text length: " + answerLength.value + "\nThank you for your help!"; 
 
     console.log("generatePrompt ended");
 }
@@ -201,7 +213,7 @@ function resetProfile() {
 
     console.log("resetProfile done for none dropdowns");
     // profileName.value = "";
-    // shortDescription.value = "";
+    // Description.value = "";
     // inputUserInstruction.value = "";
     // typeSelect.value = "";
     // answerLanguageSelect.value = "";
@@ -216,7 +228,7 @@ async function saveProfile() {
         alert("Please fill in a profile name.");
         return;
     }
-    if (shortDescription.value === "") {
+    if (Description.value === "") {
         alert("Please fill in a short description.");
         return;
     }
@@ -244,15 +256,16 @@ async function saveProfile() {
         alert("Please write or generate a prompt first.");
         return;
     }
-
+    console.log(inputPrompt.value);
+    console.log("saveProfile started");
     // save profile to database
     const { data, error } = await supa
         .from('profile')
         .insert({
             user_id: initialUser.id,
-            user_instruction: inputUserInstruction.value,
             name: profileName.value,
-            short_description: shortDescription.value,
+            description: Description.value,
+            user_instruction: inputUserInstruction.value,
             type_id: typeSelect.value,
             answer_language_id: answerLanguageSelect.value,
             area_of_use_id: areaOfUseSelect.value,
