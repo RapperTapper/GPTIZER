@@ -36,7 +36,7 @@ window.onload = async function() {
             console.log("No nickname found. User has to setup account.");
         } else {
             console.log("Nickname found. User has already setup account. Now going to display account entries");
-            redirect("account-edit.html");
+            redirect("account-update.html");
             console.log(theActiveUser);
             document.getElementById('username').value = theActiveUser.name;
             document.getElementById('usersurname').value = theActiveUser.surname;
@@ -93,9 +93,12 @@ async function saveAccountEntries() {
                     document.getElementById('saveAccountEntries').innerHTML = 'Save';
                     throw error;
                 } else {
+                    debugger;
                     document.getElementById('saveAccountEntries').innerHTML = 'Update';
                     console.log('user_data updated');
                     updateMessage.textContent = "Account has been updated.";
+                    debugger;
+                    redirect("account-update.html");
                 }
             }   catch (error) {
                 console.log(error.message);
