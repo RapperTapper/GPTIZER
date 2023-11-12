@@ -13,7 +13,7 @@ document.getElementById('saveAccountEntries').addEventListener('click', saveAcco
 // document.getElementById('loadAccountEntries').addEventListener('click', loadAccountEntries);
 document.getElementById('nickname').addEventListener('input', checkNicknameCharacters);
 
-let isNicknameUpdated = null;
+let isNicknameUpdated = true;
 
 window.onload = async function() {
 // async function loadAccountEntries() {

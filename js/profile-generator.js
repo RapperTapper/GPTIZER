@@ -239,6 +239,7 @@ function deleteProfile() {
                     console.error('Error deleting profile:', response.error);
                 } else {
                     console.log('Profile deleted successfully');
+                    resetProfile();
                 }
             });
     } else {
