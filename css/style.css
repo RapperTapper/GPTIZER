@@ -305,7 +305,7 @@ a {
 }
 
 .content-field-big {
-    min-height: 80px;
+    /* min-height: 80px; */
     resize: vertical;
 }
 textarea {
@@ -382,35 +382,41 @@ textarea {
         outline: none; /* Remove default focus outline */
         background-color: var(--green-focus); /* New background color on focus */
       }
-  }
-  
-  .btn:hover,
-  button:hover,
-  input[type="submit"]:hover {
+}
+
+.btn.clicked {
+    color: var(--white);
+    background-color: var(--green);
+    border-color: var(--green);
+}
+ 
+.btn:hover,
+button:hover,
+input[type="submit"]:hover {
     color: var(--white);
     background-color: var(--green-hover);
     border-color: var(--green-hover);
     /* border-color: var(--black); */
-  }
+}
   
-  .btn-light {
+.btn-light {
     color: var(--green);
     background-color: var(--white);
     border-color: var(--light-grey);
-  }
+}
   
-  .btn-light:hover {
+.btn-light:hover {
     color: var(--white);
     background-color: var(--green-focus);
     border-color: var(--green-focus);
-  }
+}
 
-  a,
-  .main-menu li,
-  .btn,
-  button,
-  .select-items div,
-  input[type="submit"] {
+a,
+.main-menu li,
+.btn,
+button,
+.select-items div,
+input[type="submit"] {
     -webkit-transition: .2s all ease;
     transition: .2s all ease;
 }

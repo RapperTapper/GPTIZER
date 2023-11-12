@@ -41,11 +41,25 @@
     </header>
     <content class="content-frame">
         <div class="content">
-                <form action="" class="form-base form-search"></form>
+                <form action="" class="form-base form-search" id="profile-generator-form"></form>
                 <h1>Profile Generator</h1>
                 <div class="form-group content-textfield">
+                    <label class="content-label" for="profile-name">Profile Name</label>
+                    <textarea class="content-field" id="profile-name" name="profile-name" placeholder="Profile Name" rows="1"></textarea>
+                </div>
+                <div class="form-group content-textfield">
+                    <label class="content-label" for="profile-description">Short Description</label>
+                    <textarea class="content-field content-field-big" id="profile-description" name="profile-description" placeholder="Short Description" rows="2"></textarea>
+                </div>
+                <div class="form-group content-textfield">
                     <label class="content-label" for="input-user-instructions">Extend profile with your own instructions</label>
-                    <textarea class="content-field content-field-big" id="input-user-instructions" name="input-user-instructions" placeholder="Your instructions"></textarea>
+                    <textarea class="content-field content-field-big" id="input-user-instructions" name="input-user-instructions" placeholder="Your instructions" rows="2"></textarea>
+                </div>
+                <label class="selector-label" for="type">Type</label>
+                <div class="form-group field-select content-field custom-select">
+                    <select id="type" name="type">
+                        <option value="" selected disabled hidden>Choose a type</option>
+                    </select>
                 </div>
                 <label class="selector-label" for="answer-language">Answer language</label>
                 <div class="form-group field-select content-field custom-select">
@@ -53,38 +67,24 @@
                         <option value="" selected disabled hidden>Choose language for answers</option>
                     </select>
                 </div>
-                <div class="form-group content-textfield">
-                    <label class="content-label" for="#-characters">Prefered answer length (range possible)</label>
-                    <textarea class="content-field" id="#-characters" name="#-characters" placeholder="500 or 300-700" rows="1"></textarea>
-                </div>
-                <label class="selector-label" for="type">Type</label>
+                <label class="selector-label" for="area-of-use">Area of use</label>
                 <div class="form-group field-select content-field custom-select">
-                    <select id="type" name="type">
-                        <option value="" selected disabled hidden>Choose whatever we put in here</option>
-                        <!-- <option value="option-01">option 01</option>
-                        <option value="option-02">option 02</option>
-                        <option value="option-03">option 03</option>
-                        <option value="option-04">option 04</option> -->
-                    </select>
-                </div>
-                <label class="selector-label" for="category">Category</label>
-                <div class="form-group field-select content-field custom-select">
-                    <select id="category" name="category">
-                        <option value="" selected disabled hidden>Choose Category</option>
+                    <select id="area-of-use" name="area-of-use">
+                        <option value="" selected disabled hidden>Choose area of use</option>
                     </select>
                 </div>
                 <div class="form-group content-textfield">
-                    <label class="content-label" for="profile-name">Profile Name</label>
-                    <textarea class="content-field" id="profile-name" name="profile-name" placeholder="Profile Name" rows="1"></textarea>
+                    <label class="content-label" for="answer-length">Prefered answer length (range possible)</label>
+                    <textarea class="content-field" id="answer-length" name="answer-length" placeholder="500 or 300-700" rows="1"></textarea>
                 </div>
-                <button class="btn">Generate Prompt</button>
+                <button class="btn" id="generate-prompt">Generate Prompt</button>
                 <div class="form-group content-textfield">
                     <label class="content-label" for="input-prompt">Prompt</label>
-                    <textarea class="content-field content-field-big" id="input-prompt" name="input-prompt" placeholder="Write your own prompt or generate one"></textarea>
+                    <textarea class="content-field content-field-big" id="input-prompt" name="input-prompt" placeholder="Write your own prompt or generate one" rows="8"></textarea>
                 </div>
                 <div class="content-row">
-                    <button class="btn btn-light">Reset</button>
-                    <button class="btn">Save</button>
+                    <button class="btn btn-light" id="reset-profile">Reset</button>
+                    <button class="btn" id="save-profile">Save</button>
                 </div>
                 <div class="spacer-bottom">
                 </div>
@@ -94,6 +94,7 @@
             </form>
         </div>
     </content>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="module" src="./js/profile-generator.js"></script>
     <script type="module" src="js/global-functions.js"></script>
     <script src="js/menu.js"></script>

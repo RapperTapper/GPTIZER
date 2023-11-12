@@ -22,3 +22,15 @@ export async function logOutPagesToFalse() {
     .update({ loggedOut: false })
     .eq('id', session.user.id);
 }
+
+$(document).ready(function(){
+    $(".btn").click(function(){
+        $(this).addClass("clicked");
+    });
+
+    $(document).click(function(e){
+        if (!$(e.target).hasClass("btn")){
+            $(".btn").removeClass("clicked");
+        }
+    });
+});
