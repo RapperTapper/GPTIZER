@@ -2,6 +2,7 @@ import { supa } from "../connection/supabase.js";
 
 document.getElementById("generate-prompt").addEventListener("click", generatePrompt);
 document.getElementById("reset-profile").addEventListener("click", resetProfile);
+document.getElementById("delete-profile").addEventListener("click", deleteProfile);
 document.getElementById("save-profile").addEventListener("click", saveProfile);
 
 const initialUser = supa.auth.user();
@@ -13,6 +14,8 @@ let answerLanguageSelect = document.getElementById("answer-language");
 let areaOfUseSelect = document.getElementById("area-of-use");
 let answerLength = document.getElementById("answer-length");
 let inputPrompt = document.getElementById("input-prompt");
+
+let profileId = null;
 
 loadSelectOptions();
 
@@ -222,6 +225,26 @@ function resetProfile() {
     // inputPrompt.value = "";
 }    
 
+function deleteProfile() {
+    console.log("deleteProfile started");
+    if (profileId && initialUser.id) {
+        supa
+            .from('profile')
+            .delete()
+            .match({ id: profileId, user_id: initialUser.id })
+            .then(response => {
+                if (response.error) {
+                    console.error('Error deleting profile:', response.error);
+                } else {
+                    console.log('Profile deleted successfully');
+                }
+            });
+    } else {
+        alert("Have you saved this Profile bevore? If not, there is noting to delete yet.");
+        console.error('Profile ID or User ID is missing');
+    }
+}
+
 async function saveProfile() {
     // check if those fields are filled
     if (profileName.value === "") {
@@ -280,6 +303,7 @@ async function saveProfile() {
         return;
     } else {
         console.log('Inserted profile id: ', data.id);
+        profileId = data.id;
     }
 
 }
