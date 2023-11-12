@@ -44,17 +44,11 @@ const loadScript = (FILE_URL, async = true, type = "text/javascript") => {
 
 
 async function loadSelectOptions() {
-    const { data : typedata, error : typeerror } = await supa.from("type").select("*");
+    const { data : typedata, error : typeerror } = await supa.from("type").select("*").order('id');
     if (typeerror) {
         console.error(typeerror);
         return;
     } 
-
-    // // Create an empty option
-    // const emptyOption = document.createElement("option");
-    // emptyOption.value = "";
-    // emptyOption.textContent = "Select a type";
-    // typeSelect.appendChild(emptyOption);
 
     for (const type of typedata) {
         const option = document.createElement("option");
@@ -82,21 +76,21 @@ async function loadSelectOptions() {
 
     console.log(languagedata);
 
-    const { data: areaofusedata, error: areaofuseerror } = await supa.from("area_of_use").select("*");
+    const { data: areaOfUsedata, error: areaofuseerror } = await supa.from("area_of_use").select("*").order('id');
     if (areaofuseerror) {
         console.error(areaofuseerror);
         return;
     }
 
-    for (const areaOfUse of areaofusedata) {
+    for (const areaOfUseObject of areaOfUsedata) {
         const option = document.createElement("option");
-        option.value = areaOfUse.id;
-        option.textContent = areaOfUse.areaOfUse;
+        option.value = areaOfUseObject.id;
+        option.textContent = areaOfUseObject.areaOfUse;
         areaOfUseSelect.appendChild(option);
-        console.log(areaOfUse);
+        console.log(areaOfUseObject);
     }
 
-    console.log(areaofusedata);
+    console.log(areaOfUsedata);
     
     loadScript("./js/dropdown-select.js")
     .then( data  => {
@@ -111,47 +105,97 @@ async function loadSelectOptions() {
 function generatePrompt() {
     // generate prompt based on user input
     console.log("generatePrompt started");
-    // if (error) {
-    //     console.error(error);
-    //     alert("Error while generating profile");
+    
+    // check if there is a prompt already
+    if (inputPrompt.value !== "") {
+        var userConfirmation = confirm("Do You want to override the existing prompt?");
+        if (userConfirmation == true) {
+        // User clicked "OK", put your code here
+        } else {
+        // User clicked "Cancel", put your code here
+    }
+        return;
+    }   
+    console.log("generatePrompt after prompt check");
+
+    // check if those fields are filled
+    // if (profileName.value === "") {
+    //     alert("Please fill in a profile name.");
     //     return;
     // }
-    console.log("generatePrompt ended");
+    // if (shortDescription.value === "") {
+    //     alert("Please fill in a short description.");
+    //     return;
+    // }
+    if (inputUserInstruction.value === "") {
+        alert("Please fill in a user instruction.");
+        return;
+    }
+    if (typeSelect.value === "") {
+        alert("Please select a type.");
+        return;
+    }
+    if (answerLanguageSelect.value === "") {
+        alert("Please select an answer language.");
+        return;
+    }
+    if (areaOfUseSelect.value === "") {
+        alert("Please select an area of use.");
+        return;
+    }
+    if (answerLength.value === "") {
+        alert("Please fill in an answer length.");
+        return;
+    }
+    
+    // generate prompt
+    inputPrompt.value = "#This is a customized prompt for individual instructions.\nBased on the following user inputs, please generate an appropriate text: \nSpecific Details or Instructions: " + inputUserInstruction.value + "\nLanguage to be Used: " + answerLanguageSelect.value + "\nType of text: " + areaOfUseSelect.value + "\nDesired text length: " + answerLength.value + "\nThank you for your help!"; 
 
+    console.log("generatePrompt ended");
 }
 
 function resetProfile() {
     console.log("resetProfile started");
         // Select the form
-    // var form = document.getElementById('profile-generator-form');
-    //     // Check if form exists
+    var form = document.getElementById('profile-generator-form');
+        // Check if form exists
     // if(form){
-    //         // Reset all input fields in the form
-    //     for (var i = 0; i < form.elements.length; i++) {
-    //         if (form.elements[i].type == "text" || form.elements[i].type == "number" || form.elements[i].type == "email" || form.elements[i].type == "password") {
-    //             form.elements[i].value = "";
-    //         }
-    //             // For select elements
-    //         else if(form.elements[i].tagName == "SELECT") {
-    //             form.elements[i].selectedIndex = 0;
-    //         }
-    //             // For textarea elements
-    //         else if(form.elements[i].tagName == "TEXTAREA") {
-    //             form.elements[i].value = "";
-    //         }
-    //     }
+    // // Reset all selector fields in the form
+    //     // for (var i = 0; i < form.elements.length; i++) {
+    //     //         // For select elements
+    //     //     if(form.elements[i].tagName == "SELECT") {
+    //     //         form.elements[i].selectedIndex = 0;
+    //     //     }
+    //     document.getElementById("type").value = 0;
+    //     document.getElementById("answer-language").value = 0;
+    //     document.getElementById("area-of-use").value = 0;
     // } else {
     //     console.log("Form with id 'profile-generator-form' not found");
     // }
-    
+    // if(form){
+    //     // Find the select element
+    //     var typeSelect = document.getElementById("type");
+    //     // Find the option with value 0
+    //     var optionToSelect = Array.from(typeSelect.options).find(option => option.value === '1');
+    //     // Set the option as selected
+    //     if (optionToSelect) {
+    //         typeSelect.value = optionToSelect.value;
+    //     }
+    //     // document.getElementById("answer-language").value = 0;
+    //     // document.getElementById("area-of-use").value = 0;
+    // } else {
+    //     console.log("Form with id 'profile-generator-form' not found");
+    // }
+
     // reset profile to default values = null
     
     document.getElementById("profile-name").value = "";
     document.getElementById("profile-description").value = "";
     document.getElementById("input-user-instructions").value = "";
-    document.getElementById("type").value = "";
-    document.getElementById("answer-language").value = "";
-    document.getElementById("area-of-use").value = "";
+    //those dropdown-reset are not working jet.
+        document.getElementById("type").value = "";
+        document.getElementById("answer-language").value = "";
+        document.getElementById("area-of-use").value = "";
     document.getElementById("answer-length").value = "";
     document.getElementById("input-prompt").value = "";
 
@@ -167,23 +211,65 @@ function resetProfile() {
 }    
 
 async function saveProfile() {
-    // if a or b then
-    // a generateProfile();
-    // b updateProfile();
+    // check if those fields are filled
+    if (profileName.value === "") {
+        alert("Please fill in a profile name.");
+        return;
+    }
+    if (shortDescription.value === "") {
+        alert("Please fill in a short description.");
+        return;
+    }
+    if (inputUserInstruction.value === "") {
+        alert("Please fill in a user instruction.");
+        return;
+    }
+    if (typeSelect.value === "") {
+        alert("Please select a type.");
+        return;
+    }
+    if (answerLanguageSelect.value === "") {
+        alert("Please select an answer language.");
+        return;
+    }
+    if (areaOfUseSelect.value === "") {
+        alert("Please select an area of use.");
+        return;
+    }
+    if (answerLength.value === "") {
+        alert("Please fill in an answer length.");
+        return;
+    }
+    if (inputPrompt.value === "") {
+        alert("Please write or generate a prompt first.");
+        return;
+    }
 
-    // const { error } = await supa
-    //     .from('profile')
-    //     .insert({
-    //         user_id: initialUser.id,
-    //         user_instruction: inputUserInstruction.value,
-    //         name: 'Denmark'
-    //     });
+    // save profile to database
+    const { data, error } = await supa
+        .from('profile')
+        .insert({
+            user_id: initialUser.id,
+            user_instruction: inputUserInstruction.value,
+            name: profileName.value,
+            short_description: shortDescription.value,
+            type_id: typeSelect.value,
+            answer_language_id: answerLanguageSelect.value,
+            area_of_use_id: areaOfUseSelect.value,
+            answer_length: answerLength.value,
+            prompt: inputPrompt.value
+        })
+        .single();
 
-    // if (error) {
-    //     console.error(error);
-    //     alert("Error while generating profile");
-    //     return;
-    // }
+    if (error) {
+        console.error(error);
+        alert("Error while generating profile");
+        return;
+    } else {
+        console.log('Inserted profile id: ', data.id);
+    }
 
 }
 
+// Check on window.load -> if i have a profile.id sent to this page or not!
+// Save Button change to Update Button if profile.id already exists (should be the same as data.id from above)
