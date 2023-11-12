@@ -11,9 +11,10 @@ console.log(initialUser.id);
 
 document.getElementById('saveAccountEntries').addEventListener('click', saveAccountEntries);
 // document.getElementById('loadAccountEntries').addEventListener('click', loadAccountEntries);
+document.getElementById('goToAccount').addEventListener('click', goToAccount);
 document.getElementById('nickname').addEventListener('input', checkNicknameCharacters);
 
-let isNicknameUpdated = true;
+let isNicknameUpdated = null;
 
 window.onload = async function() {
 // async function loadAccountEntries() {
@@ -105,4 +106,13 @@ async function saveAccountEntries() {
         }
     }
     isNicknameUpdated = true;
+}
+
+function goToAccount() {
+    console.log('goToAccount');
+    if (isNicknameUpdated == true) {
+        redirect("account.html");
+    } else {
+        alert('Please save your account entries first.');
+    }
 }
