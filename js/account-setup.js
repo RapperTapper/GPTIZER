@@ -37,6 +37,7 @@ window.onload = async function() {
             console.log("No nickname found. User has to setup account.");
         } else {
             console.log("Nickname found. User has already setup account. Now going to display account entries");
+            redirect("account-edit.html");
             console.log(theActiveUser);
             document.getElementById('username').value = theActiveUser.name;
             document.getElementById('usersurname').value = theActiveUser.surname;
@@ -106,13 +107,4 @@ async function saveAccountEntries() {
         }
     }
     isNicknameUpdated = true;
-}
-
-function goToAccount() {
-    console.log('goToAccount');
-    if (isNicknameUpdated == true) {
-        redirect("account.html");
-    } else {
-        alert('Please save your account entries first.');
-    }
 }
